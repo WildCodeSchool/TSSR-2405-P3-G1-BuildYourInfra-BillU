@@ -1,9 +1,16 @@
+### Prérequis techniques
+
+-
+-
+-
+
+
 ### Étapes d'installation et de configuration
 
-1)
--
--
--   
+#### Etape 1 : 
+   
+   -
+   -   
    
 
 ### FAQ (Foire aux Questions)
