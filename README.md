@@ -49,10 +49,10 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Personne | Rôle               | Tâches                                                                                                                                                                                                  |
 | -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Mina     | Développeuse       | - Etablissement d'une partie de la liste de matériel  -Doc sur l'AD|
-| Julie    | Développeuse       | - Découpage réseau                                                                                                                                                                                      |
+| Julie    | Développeuse       | - Découpage réseau  [Accéder à mon document](Ressources/decoupage_réseau.md)   |
 | Joris    | Product Owner (PO) | - Script d'ajout d'utilisateurs AD<br>- Documentation                                                                                                                                                   |
 | Nicolas  | Développeur        | - Installation du serveur Windows GUI (DHCP, DNS)<br>- Installation de Windows Core (réplication)  -Doc                                                                                                      |
-| Mohammed | Scrum Master (SM)  | - Création VM serveur Debian<br>- Création VM client Windows 10<br>- Ajout des VMs sur l'AD et configuration des pare-feux<br>- Installation et configuration du SSH<br>- Doc |
+| Mohammed | Scrum Master (SM)  | - Création VM serveur Debian<br>- Création VM client Windows 10<br>- Ajout des VMs sur l'AD et configuration des pare-feu<br>- Installation et configuration du SSH<br>- Doc |
 
 
 ## Choix Techniques
@@ -63,18 +63,32 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 - Serveur Windows Server 2022 Core
 
 ## Difficultés Rencontrées :
-    
-    - 
-    - 
+
+- **Conflits de services sur le serveur AD :** Avoir plusieurs rôles (AD-DS, DHCP, DNS) sur un même serveur peut entraîner des conflits de services et des risques accrus en termes de sécurité.
+- **Capacité de stockage insuffisante pour les sauvegardes :** Les sauvegardes régulières des données AD et des machines virtuelles nécessitent une grande capacité de stockage, ce qui peut dépasser les capacités actuelles des supports existants.
+**Configuration de la connexion SSH sur des machines ajoutées à l'AD :** La configuration du SSH pour les machines intégrées à l'AD a présentée des difficultés en termes de permissions et de gestion des clés.
+
 ## Solutions Trouvées :
-    
-    - 
-    - 
+
+- **Isolation des rôles :** Pour réduire les conflits de services et améliorer la sécurité, il est proposé d'isoler le rôle DHCP sur un autre serveur. Cette solution permet de réduire le nombre de ports et services ouverts sur le serveur AD, minimisant ainsi les vecteurs d'attaque potentiels.
+- **Nouveaux supports de stockage de sauvegarde :** Mettre en place de nouveaux supports de stockage dédiés aux sauvegardes, tels  des solutions de stockage en cloud, ou en physique pour garantir suffisamment d'espace et améliorer la fiabilité des sauvegardes.
+- **Configuration SSH et gestion des clés :** Personnalisation du module PAM et des fichiers de configuration SSH et SSSD
+
 ## Améliorations Possibles :
 
-    - Isoler le rôle DHCP sur un autre serveur pour optimiser la sécurité (réduction des ports et services ouverts sur le serveur AD)
-    - Mettre en place de nouveaux supports de stockage de back-up
+- **Isoler le rôle DHCP sur un autre serveur pour optimiser la sécurité :**
+    
+    - **Description :** Déplacer le rôle DHCP vers un serveur dédié afin de réduire les risques de sécurité associés à la concentration de plusieurs rôles critiques sur un même serveur.
+    - **Avantages :** Amélioration de la sécurité en réduisant les ports et services ouverts sur le serveur AD, simplification de la gestion des services, réduction des risques de conflits entre services.
+- **Mettre en place de nouveaux supports de stockage de back-up :**
+    
+    - **Description :** Utiliser des solutions de stockage supplémentaires ou de remplacement pour les sauvegardes.
+    - **Avantages :** Augmentation de la capacité de stockage disponible pour les sauvegardes, amélioration de la fiabilité et de la sécurité des sauvegardes, possibilité de restaurer les données plus rapidement en cas de perte ou de corruption des données.
 
+**Optimisation de la configuration SSH :**
+
+- **Description :** Automatiser et standardiser la configuration SSH sur toutes les machines ajoutées à l'AD pour garantir une sécurité et une gestion des accès optimales.
+- **Avantages :** Amélioration de la sécurité des connexions SSH, réduction du temps et des erreurs de configuration, facilité de gestion des accès pour les utilisateurs.
   
 
 ---
