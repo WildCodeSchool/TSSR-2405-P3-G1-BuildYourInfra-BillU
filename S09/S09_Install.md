@@ -270,26 +270,26 @@ Méthodes de Sauvegarde
 Sauvegardes Locales
 Stockage sur disque dur externe : Il convient de connecter un disque dur externe à notre serveur et d'y copier manuellement nos fichiers, ou bien d'utiliser un logiciel dédié à la sauvegarde pour automatiser cette opération.
 
-Partage réseau : La possibilité existe également de sauvegarder nos fichiers sur un autre serveur ou sur un NAS (Network Attached Storage) présent dans notre réseau.
+# Partage réseau : La possibilité existe également de sauvegarder nos fichiers sur un autre serveur ou sur un NAS (Network Attached Storage) présent dans notre réseau.
 Sauvegardes Hors Site
-Stockage cloud : Nous pouvons recourir à un service de stockage cloud tel que Microsoft Azure ou Amazon S3 pour archiver nos sauvegardes.
+# Stockage cloud : Nous pouvons recourir à un service de stockage cloud tel que Microsoft Azure ou Amazon S3 pour archiver nos sauvegardes.
 Bandes magnétiques : L'utilisation de bandes magnétiques permet également le stockage hors ligne des sauvegardes.
-Logiciels de Sauvegarde : Une variété de logiciels gratuits et payants sont disponibles pour assister dans le processus de sauvegarde. Ces outils peuvent automatiser les opérations, offrir des options flexibles en termes de planification, ainsi que permettre la création de sauvegardes différentielles et incrémentielles.
-Règles de sauvegarde
+# Logiciels de Sauvegarde : Une variété de logiciels gratuits et payants sont disponibles pour assister dans le processus de sauvegarde. Ces outils peuvent automatiser les opérations, offrir des options flexibles en termes de planification, ainsi que permettre la création de sauvegardes différentielles et incrémentielles.
+# Règles de sauvegarde
 Règle 3.2.1 : Effectuez 3 copies de nos données, 2 sur des supports différents et 1 hors site.
-Testez nos sauvegardes régulièrement : Assurer que nous pouvons restaurer nos sauvegardes en cas de sinistre.
+# Testez nos sauvegardes régulièrement : Assurer que nous pouvons restaurer nos sauvegardes en cas de sinistre.
 Mettre à jour nos sauvegardes régulièrement : effectuez des sauvegardes complètes régulièrement et des sauvegardes incrémentielles ou différentielles plus fréquemment.
-Création d'un Script pour la Sauvegarde Automatisée d'un Serveur Virtuel
+# Création d'un Script pour la Sauvegarde Automatisée d'un Serveur Virtuel
 Mise en place d'un Script pour la Sauvegarde Automatisée d'un Serveur Virtuel
-L'automatisation de la sauvegarde de notre serveur virtuel à l'aide d'un script permet non seulement de gagner du temps, mais aussi de garantir la cohérence des sauvegardes. Voici les étapes générales à suivre :
+# L'automatisation de la sauvegarde de notre serveur virtuel à l'aide d'un script permet non seulement de gagner du temps, mais aussi de garantir la cohérence des sauvegardes. Voici les étapes générales à suivre :
 Choix du Langage de Script
 PowerShell : Pour les systèmes Windows.
 Bash : Pour les systèmes Linux.
 Python : Adapté à une variété de tâches d'automatisation.
 Étapes du Script
-Connexion au serveur virtuel : Établissement d'une connexion avec le serveur virtuel via SSH pour Linux ou PowerShell pour Windows.
+# Connexion au serveur virtuel : Établissement d'une connexion avec le serveur virtuel via SSH pour Linux ou PowerShell pour Windows.
 Identification des fichiers à sauvegarder : Identification des fichiers et des répertoires spécifiques à sauvegarder.
-Création de la destination de sauvegarde : Création d'un emplacement destiné au stockage des fichiers de sauvegarde (disque dur local, NAS, stockage cloud).
+# Création de la destination de sauvegarde : Création d'un emplacement destiné au stockage des fichiers de sauvegarde (disque dur local, NAS, stockage cloud).
 Exécution de la sauvegarde : Utilisation d'une commande appropriée pour copier les fichiers vers l'emplacement dédié à la sauvegarde.
 Vérification de la sauvegarde : Vérification que la sauvegarde a été réalisée avec succès.
 Gestion des anciennes sauvegardes : Archivage ou suppression des anciennes sauvegardes afin de libérer de l'espace de stockage.
