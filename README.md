@@ -72,7 +72,8 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
     - 
 ## Améliorations Possibles :
 
-    -
+    - Isoler le rôle DHCP sur un autre serveur pour optimiser la sécurité (réduction des ports et services ouverts sur le serveur AD)
+    - Mettre en place de nouveaux supports de stockage de back-up
 
   
 
