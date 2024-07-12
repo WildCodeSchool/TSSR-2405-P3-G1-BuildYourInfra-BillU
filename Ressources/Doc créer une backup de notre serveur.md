@@ -100,4 +100,4 @@ Tests de Récupération
 Récupération Régulière : Il est impératif de réaliser des tests de récupération afin de garantir l'intégrité des sauvegardes et la capacité de restauration rapide.
 
 ## Conclusion
-La mise en place d'une stratégie robuste et automatisée en matière de sauvegarde, incluant des mécanismes de redondance et de récupération, revêt une importance capitale pour assurer la protection de 
+La mise en place d'une stratégie robuste et automatisée en matière de sauvegarde, incluant des mécanismes de redondance et de récupération, revêt une importance capitale pour assurer la protection de sauvegarde
