@@ -1,4 +1,4 @@
-## Comment créer une backup de notre serveur.
+# Comment créer une backup de notre serveur.
 
 La mise en place d'une sauvegarde régulière de notre serveur s'avère indispensable afin d'assurer la protection de nos données et garantir la continuité de nos activités en cas d'incident majeur. Le choix de la méthode la plus appropriée dépendra de notre configuration spécifique et de nos exigences particulières. 
 
@@ -7,7 +7,7 @@ Méthodes de Sauvegarde
 Sauvegardes Locales
 Stockage sur disque dur externe : Il convient de connecter un disque dur externe à notre serveur et d'y copier manuellement nos fichiers, ou bien d'utiliser un logiciel dédié à la sauvegarde pour automatiser cette opération.
 
-# Partage réseau : La possibilité existe également de sauvegarder nos fichiers sur un autre serveur ou sur un NAS (Network Attached Storage) présent dans notre réseau.
+Partage réseau : La possibilité existe également de sauvegarder nos fichiers sur un autre serveur ou sur un NAS (Network Attached Storage) présent dans notre réseau.
 Sauvegardes Hors Site
 # Stockage cloud : Nous pouvons recourir à un service de stockage cloud tel que Microsoft Azure ou Amazon S3 pour archiver nos sauvegardes.
 Bandes magnétiques : L'utilisation de bandes magnétiques permet également le stockage hors ligne des sauvegardes.
