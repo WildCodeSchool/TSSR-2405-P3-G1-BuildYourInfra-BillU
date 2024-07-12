@@ -1,3 +1,5 @@
+## Mise en place de l'infrastructure : création d'un domaine AD et installation, configuration du LAB virtuel via les VMs
+
 ### Prérequis techniques
 
 | Fonction de la VM          | Serveur                     | Serveur             |  Serveur          | Client         |
@@ -16,13 +18,41 @@
 
 
 
-### Étapes d'installation et de configuration : Création d'un domaine AD
+## Étapes d'installation et de configuration pour les objectifs du sprint 1 : 
 
-#### Etape 1 : 
+### Etape 1 : Installation et configuration des serveurs WINDOWS
    
-   -
-   -   
-### ajoute des utilisateur depuis un fichié XLSX
+### **Serveur WINSERV**
+Il s'agit ici du serveur principal de notre réseau. Pour une question de confort, il est en installation graphique. Il concentre différents rôles : DHCP, DNS et Active Directory. Nous avons conservé la plage IP du réseau existant.
+
+#### **Rôle DHCP**
+Le rôle DHCP (Dynamic Host Configuration Protocol) a pour objectif de permettre une attribution dynamique des adresses IP aux machines de notre réseau. 
+* Il attribue automatiquement une adresse IP aux appareils connectés au réseau, un gain de temps par rapport à une installation manuelle.
+* L'automatisation permet de réduire les risques d'erreurs humaines liés à cette même installation manuelle ainsi que les conflits d'adresses IP.
+* Il peut être configuré pour distribuer des adresses en fonction du sous-réseau de l'appareil et permet une adaptation simple aux évolutions du réseau.
+
+Actuellement, une seule étendue (plage d'adresses distribuable) a été configurée sur le serveur (le sous réseau relatif à la salle des serveurs). A terme, on totalisera 10 sous-réseaux : un par département, afin d'optimiser la sécurité du réseau global.
+* Si un sous-réseau est compromis, on évite la propagation des effets sur l'ensemble du réseau.
+* En plus de réduire l'impact, on réduit aussi la zone à vérifier lors d'un incident.
+* Des règles de pare-feu spécifiques et des politiques de sécurité adaptées peuvent être imposées à différents sous-réseaux afin de limiter le trafic.
+* Cela permettra également d'optimiser les ressources et les performances.
+
+#### **Rôle DNS**
+Le rôle DNS a été installé automatiquement lors de l'installation de l'Active Directory. Sa finalité est de traduire les noms de domaine en adresses IP pour permettre aux utilisateurs d'accéder aux ressources du réseau via des noms plus que des adresses. 
+* Il permet une simplification de la navigation réseau.
+* Il permet de réduire les temps de connexion (résolutions de noms en cache).
+* Il permet une gestion centralisée des noms de domaine ce qui facilite la maintenance.
+* Il peut être configuré pour contrôler l'accès aux ressources.
+
+Le domaine employé par l'entreprise est le domaine "BillU.Paris".
+
+#### **Rôle Active Directory**
+
+
+### **Serveur WINSERV-BACKUP**
+Il s'agit d'un serveur Back-Up si le serveur principal venait à tomber. Nous avons opté pour une version Core, plus légère et moins gourmande en ressources.
+Le rôle Active Directory et DNS lui on été alloué, afin de maintenir le réseau en cas de panne. Pour cela, nous l'avons promu en contrôleur de domaine.
+#### ajoute des utilisateur depuis un fichié XLSX
 #### Pré-requis
 - Active Directory installé et un domaine créé
 - Avoir installé le module ImportExcel
@@ -34,8 +64,241 @@
 ##### Attention
 Les caractères spéciaux dans le fichier xlsx peuvent engendrer des erreurs
 
+### Etape 2 : Installation et configuration du serveur DEBIAN et du Client WINDOWS 10 PRO puis intégration dans l'AD
+
+### Partie 1 : DEBIAN
+
+#### A. Mettre à jour le système
+
+**But :** Assurer que le système dispose des dernières mises à jour de sécurité et des paquets.
+
+```bash
+sudo apt update sudo apt upgrade -y
+```
+#### B. Installer les paquets nécessaires
+
+**But :** Installer les outils et services nécessaires pour intégrer Debian à un domaine Active Directory et pour gérer les comptes AD.
+
+```bash
+sudo apt install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit
+```
+**Explications des paquets :**
+
+- `realmd` : Découverte et jonction à des domaines AD.
+- `sssd` : Gestion des services d'authentification pour les utilisateurs AD.
+- `sssd-tools` : Outils supplémentaires pour `sssd`.
+- `libnss-sss` et `libpam-sss` : Intégration des services `sssd` avec NSS (Name Service Switch) et PAM (Pluggable Authentication Modules).
+- `adcli` : Utilitaire pour rejoindre et gérer les comptes d'un domaine AD.
+- `samba-common-bin` : Outils de ligne de commande pour Samba.
+- `oddjob` et `oddjob-mkhomedir` : Création automatique de répertoires home pour les utilisateurs.
+- `packagekit` : Interface pour la gestion des paquets.
+
+#### C. Découvrir le domaine AD
+
+**But :** Vérifier que le domaine Active Directory est accessible et obtenir des informations sur ce domaine.
+
+```bash
+sudo realm discover BillU.Paris
+```
+#### D. Joindre la machine au domaine AD
+
+**But :** Intégrer la machine Debian au domaine Active Directory.
+
+```bash
+sudo realm join --user=Administrateur BillU.Paris
+```
+
+**Explication :** `Administrateur` est un compte utilisateur AD avec les droits nécessaires pour ajouter des machines au domaine. Vous serez invité à entrer le mot de passe de cet utilisateur.
+
+#### E. Configurer `sssd` pour utiliser les comptes AD
+
+1. **Créer le fichier de configuration sssd.conf :**
+    
+    
+```bash    
+sudo nano /etc/sssd/sssd.conf
+```
+
+2. **Ajouter la configuration suivante :**
+    
+    
+```ini
+    [sssd] services = nss, pam 
+    config_file_version = 2 
+    domains = BillU.Paris  
+    [domain/BillU.Paris] 
+    ad_domain = BillU.Paris 
+    krb5_realm = BillU.Paris 
+    realmd_tags = manages-system joined-with-samba 
+    cache_credentials = True 
+    id_provider = ad 
+    access_provider = ad
+```    
+
+3. **Définir les permissions appropriées pour le fichier :**
+    
+    
+```bash
+sudo chmod 600 /etc/sssd/sssd.conf
+```
+    
+
+**Explications :**
+
+- `services` : Les services fournis par `sssd` (NSS et PAM).
+- `domains` : Le domaine géré par `sssd`.
+- `ad_domain` et `krb5_realm` : Spécifient le domaine AD et le realm Kerberos.
+- `cache_credentials` : Active la mise en cache des identifiants.
+- `id_provider` et `access_provider` : Utilisent `ad` comme fournisseur d'identité et de contrôle d'accès.
+
+#### F. Démarrer et activer les services `sssd` et `oddjobd`
+
+**But :** S'assurer que `sssd` et `oddjobd` démarrent et sont activés au démarrage.
+
+
+```bash
+
+sudo systemctl start sssd sudo systemctl enable sssd  sudo systemctl start oddjobd sudo systemctl enable oddjobd
+```
+#### G. Autoriser les utilisateurs du domaine à se connecter via SSH
+
+1. **Éditer le fichier de configuration SSH :**
+    
+    
+```bash
+    sudo nano /etc/ssh/sshd_config
+```    
+
+2. **Ajouter ou modifier les lignes suivantes :**
+    
+    
+```ini
+    UseDNS no AllowUsers *@BillU.Paris
+ ````
+    
+3. **Redémarrer le service SSH :**
+    
+    
+```bash
+    sudo systemctl restart ssh
+```
+    
+
+**Explications :**
+
+- `UseDNS no` : Désactive la recherche DNS inversée pour accélérer les connexions SSH.
+- `AllowUsers *@BillU.Paris` : Autorise uniquement les utilisateurs du domaine `BillU.Paris` à se connecter via SSH.
+
+#### E. Configuration de PAM pour l'authentification SSH
+
+1. **Éditer le fichier de configuration PAM SSH :**
+    
+    
+```bash   
+    sudo nano /etc/pam.d/sshd
+```
+    
+2. **Ajouter la configuration suivante à la fin du fichier :**
+    
+    
+```bash    
+
+auth    required    pam_env.so
+auth    sufficient  pam_winbind.so
+auth    sufficient  pam_unix.so nullok_secure try_first_pass
+auth    required    pam_deny.so
+
+account required    pam_unix.so
 
 ```
+    
+    - `pam_env.so` : Charge les variables d'environnement.
+    - `pam_winbind.so` : Permet l'authentification avec Winbind (pour les comptes AD).
+    - `pam_unix.so` : Fournit l'authentification Unix de secours.
+    - `pam_deny.so` : Rejette l'accès si les modules précédents ne réussissent pas.
+    - `pam_unix.so` : Gère les aspects du compte Unix.
+    
+3. **Enregistrer et quitter le fichier.**
+    
+
+### Redémarrage du service SSH
+
+Après avoir configuré PAM, redémarrez le service SSH pour appliquer les modifications :
+
+
+```bash
+sudo systemctl restart ssh
+```
+
+#### H. Configurer le pare-feu pour autoriser SSH
+
+**But :** S'assurer que le pare-feu autorise les connexions SSH.
+
+1. **Installer et configurer UFW :**
+    
+    
+```bash
+    sudo apt install ufw sudo ufw allow ssh sudo ufw enable
+```
+### I. Vérification des configurations
+
+1. **Vérifier les services :**
+    
+
+```bash
+    sudo systemctl status sssd
+    sudo systemctl status oddjobd 
+    sudo systemctl status ssh
+`````
+
+1. **Tester la connexion SSH depuis une autre machine :**
+    
+    
+```bash
+    ssh nom_utilisateur@adresse_ip_du_serveur
+```   
+
+### Partie 2. Configuration de la VM Client Windows 10
+
+#### A. Joindre le client Windows 10 au domaine AD
+
+1. **Ouvrir le Panneau de configuration.**
+2. **Aller dans Système et sécurité > Système.**
+3. **Cliquer sur Modifier les paramètres sous Nom de l’ordinateur, domaine et paramètres de groupe de travail.**
+4. **Cliquer sur Modifier et sélectionner Domaine, puis entrer le nom de domaine (BillU.Paris).**
+5. **Entrer les informations d’identification d'un compte avec les droits nécessaires pour ajouter des machines au domaine.**
+6. **Redémarrer la machine pour appliquer les modifications.**
+
+#### B. Configurer un client SSH sur Windows 10
+
+1. **Vous pouvez utiliser le client SSH intégré de Windows 10.**
+    
+2. **Ouvrir PowerShell ou cmd et taper la commande suivante pour tester la connexion SSH :**
+    
+    
+```powershell
+    ssh nom_utilisateur@adresse_ip_du_serveur
+````
+
+3. **Remplacer `nom_utilisateur` par un utilisateur du domaine AD et `adresse_ip_du_serveur` par l’adresse IP de votre serveur Debian.**
+    
+
+### C. Création d'un compte utilisateur AD pour l'accès SSH
+
+1. **S'assurer que l'utilisateur AD a les permissions nécessaires pour se connecter via SSH au serveur Debian.**
+    
+2. **Depuis la VM Windows 10, ouvrir PowerShell ou cmd et se connecter au serveur Debian en utilisant SSH :**
+    
+
+```powershell
+    ssh nom_utilisateur@adresse_ip_du_serveur
+```    
+
+
+### Etape 3 : Automatisation via script : à partir d'un fichier CSV, création des comptes d'utilisateur, des groupes pour rejoindre les machines au domaine AD.
+
+```powershell
+
 # Importer les modules nécessaires
 Import-Module ActiveDirectory
 Import-Module ImportExcel
@@ -142,9 +405,4 @@ foreach ($user in $users) {
 
 Solutions aux problèmes connus et fréquents rencontrés lors de l'installation et de la configuration.
 
-1. **Problème** : 
-    
-    - Solution : 
-2. **Problème** : 
-    
-    - Solution : 
+RAS pour le sprint 1
