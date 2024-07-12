@@ -198,8 +198,9 @@ Il est possible qu'il y ait une répétition des droits d'accès, ce qui rend la
 
 En conclusion, la structuration de l’Active Directory par département favorise une gestion plus structurée, sécurisée et efficace des ressources et des utilisateurs. Cela permet une meilleure adéquation avec la structure de l’organisation, facilite la gestion des accès et des politiques, et permet une adaptation plus aisée aux évolutions organisationnelles à long terme.
 
-Sauvegarde de l'Active Directory avec Windows Server Backup
-Windows Server Backup est un outil intégré à Windows Server qui permet de sauvegarder l'Active Directory. Voici les étapes pour réaliser cette opération :
+# Sauvegarde de l'Active Directory avec Windows Server Backup
+
+## Windows Server Backup est un outil intégré à Windows Server qui permet de sauvegarder l'Active Directory. Voici les étapes pour réaliser cette opération :
 Prérequis : Veuillez vous assurer que Windows Server Backup est correctement installé sur votre serveur.
 Initialisation de Windows Server Backup :
 1. Ouvrez le Gestionnaire de serveur.
@@ -231,6 +232,7 @@ Exemple Complet en PowerShell
 Si vous préférez utiliser PowerShell pour automatiser la sauvegarde et la copie vers un autre serveur, voici un exemple complet :
 powershell
 Copier le code
+
 # Variables de configuration
 $backupLocation = "D:\Backup\ActiveDirectoryBackup"
 $remoteServer = "\\AutreServeur\PartageBackup"
@@ -254,15 +256,20 @@ if ($?) {
 } else {
     Write-Error "La sauvegarde de l'Active Directory a échoué."
 }
-Planification et Automatisation
+## Planification et Automatisation
+
 Afin d'automatiser ledit processus, il est envisageable de créer une tâche planifiée dans le Planificateur de tâches de Windows afin d'exécuter le script PowerShell à des intervalles réguliers. Il est vivement recommandé de procéder à des tests périodiques sur vos sauvegardes ainsi que sur les processus de récupération pour vous assurer qu'ils fonctionnent correctement en cas de nécessité.
 En adoptant ces démarches, vous pourrez sécuriser efficacement vos données Active Directory en réalisant des sauvegardes fréquentes et en les dupliquant vers un site distant pour une redondance et une sécurité accrues.
-Comment créer une backup de notre serveur.
+
+## Comment créer une backup de notre serveur.
+
 La mise en place d'une sauvegarde régulière de notre serveur s'avère indispensable afin d'assurer la protection de nos données et garantir la continuité de nos activités en cas d'incident majeur. Le choix de la méthode la plus appropriée dépendra de notre configuration spécifique et de nos exigences particulières. 
+
 Voici quelques techniques classiques pour effectuer une sauvegarde du serveur :
 Méthodes de Sauvegarde
 Sauvegardes Locales
 Stockage sur disque dur externe : Il convient de connecter un disque dur externe à notre serveur et d'y copier manuellement nos fichiers, ou bien d'utiliser un logiciel dédié à la sauvegarde pour automatiser cette opération.
+
 Partage réseau : La possibilité existe également de sauvegarder nos fichiers sur un autre serveur ou sur un NAS (Network Attached Storage) présent dans notre réseau.
 Sauvegardes Hors Site
 Stockage cloud : Nous pouvons recourir à un service de stockage cloud tel que Microsoft Azure ou Amazon S3 pour archiver nos sauvegardes.
@@ -345,7 +352,7 @@ echo "Sauvegarde terminée pour $DATE"
 exit 0
 
 
-Sécurisation des Sauvegardes
+## Sécurisation des Sauvegardes
 Chiffrement : Il est recommandé d'utiliser gpg pour chiffrer les sauvegardes.
 bash
 Veuillez trouver ci-dessous le code à copier :
@@ -355,7 +362,7 @@ Contrôle d'accès : Il convient de limiter l'accès aux sauvegardes uniquement 
 Tests de Récupération
 Récupération Régulière : Il est impératif de réaliser des tests de récupération afin de garantir l'intégrité des sauvegardes et la capacité de restauration rapide.
 
-Conclusion
+## Conclusion
 La mise en place d'une stratégie robuste et automatisée en matière de sauvegarde, incluant des mécanismes de redondance et de récupération, revêt une importance capitale pour assurer la protection de nos données et maintenir la continuité des opérations en cas d'incident. L'utilisation d'outils appropriés, la configuration adéquate de la redondance des sauvegardes et la vérification régulière de nos procédures de récupération sont essentielles pour garantir l'efficacité de notre stratégie globale en matière de sauvegarde.
 
 ### FAQ (Foire aux Questions)
