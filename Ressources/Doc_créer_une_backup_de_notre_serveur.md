@@ -9,10 +9,10 @@ Stockage sur disque dur externe : Il convient de connecter un disque dur externe
 
 Partage réseau : La possibilité existe également de sauvegarder nos fichiers sur un autre serveur ou sur un NAS (Network Attached Storage) présent dans notre réseau.
 Sauvegardes Hors Site
-# Stockage cloud : Nous pouvons recourir à un service de stockage cloud tel que Microsoft Azure ou Amazon S3 pour archiver nos sauvegardes.
+## Stockage cloud : Nous pouvons recourir à un service de stockage cloud tel que Microsoft Azure ou Amazon S3 pour archiver nos sauvegardes.
 Bandes magnétiques : L'utilisation de bandes magnétiques permet également le stockage hors ligne des sauvegardes.
-# Logiciels de Sauvegarde : Une variété de logiciels gratuits et payants sont disponibles pour assister dans le processus de sauvegarde. Ces outils peuvent automatiser les opérations, offrir des options flexibles en termes de planification, ainsi que permettre la création de sauvegardes différentielles et incrémentielles.
-# Règles de sauvegarde
+## Logiciels de Sauvegarde : Une variété de logiciels gratuits et payants sont disponibles pour assister dans le processus de sauvegarde. Ces outils peuvent automatiser les opérations, offrir des options flexibles en termes de planification, ainsi que permettre la création de sauvegardes différentielles et incrémentielles.
+## Règles de sauvegarde
 Règle 3.2.1 : Effectuez 3 copies de nos données, 2 sur des supports différents et 1 hors site.
 # Testez nos sauvegardes régulièrement : Assurer que nous pouvons restaurer nos sauvegardes en cas de sinistre.
 Mettre à jour nos sauvegardes régulièrement : effectuez des sauvegardes complètes régulièrement et des sauvegardes incrémentielles ou différentielles plus fréquemment.
