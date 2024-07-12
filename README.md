@@ -48,11 +48,11 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 
 | Personne | Rôle               | Tâches                                                                                                                                                                                                  |
 | -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mina     | Développeuse       | - Etablissement d'une partie de la liste de matériel  -Doc sur l'AD|
+| Mina     | Développeuse       | - Etablissement d'une partie de la liste de matériel<br>  -Doc sur l'AD|
 | Julie    | Développeuse       | - Découpage réseau  [Accéder à mon document](Ressources/decoupage_réseau.md)   |
-| Joris    | Product Owner (PO) | - Script d'ajout d'utilisateurs AD<br>- Documentation                                                                                                                                                   |
-| Nicolas  | Développeur        | - Installation du serveur Windows GUI (DHCP, DNS)<br>- Installation de Windows Core (réplication)  -Doc                                                                                                      |
-| Mohammed | Scrum Master (SM)  | - Création VM serveur Debian<br>- Création VM client Windows 10<br>- Ajout des VMs sur l'AD et configuration des pare-feu<br>- Installation et configuration du SSH<br>- Doc |
+| Joris    | Product Owner (PO) | - Script d'ajout d'utilisateurs AD<br>  -[Doc étape 3](S09/S09_Install.md)                                                                                                                                                   |
+| Nicolas  | Développeur        | - Installation du serveur Windows GUI (DHCP, DNS)<br>- Installation de Windows Core (réplication)<br>  -[Doc étape 1](S09/S09_Install.md)                                                                                                      |
+| Mohammed | Scrum Master (SM)  | - Création VM serveur Debian<br>- Création VM client Windows 10<br>- Ajout des VMs sur l'AD et configuration des pare-feu<br>- Installation et configuration du SSH<br>-[Doc étape 2](S09/S09_Install.md) |
 
 
 ## Choix Techniques
