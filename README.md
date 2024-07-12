@@ -19,27 +19,63 @@
 BillU, filiale du groupe international RemindMe, souhaite moderniser son infrastructure réseau pour répondre aux besoins croissants de ses équipes. Actuellement, l'infrastructure est basique avec un réseau wifi fourni par une box FAI, sans serveur dédié, ni sécurité avancée. Notre mission est de concevoir et de mettre en place une infrastructure réseau robuste et évolutive.
 
 ## Structure de la Documentation par Sprint  :
+# Sprint 1 - Analyse de l'État Actuel
 
-#### Sprint 1 : Analyse de l'état actuel
+## Objectifs du sprint
 
-- **Membres du Groupe (Rôles) :**
+**Mise en Place et Gestion Initiale de l'Infrastructure AD et des VMs**
+
+1. **AD-DS - Création d'un domaine AD**
+    1. Un serveur Windows Server 2022 GUI avec les rôles AD-DS, DHCP, DNS
+    2. Un serveur Windows Server 2022 Core avec le rôle AD-DS
+    3. Les deux serveurs sont des DC du domaine et ont une réplication complète gérée
+2. **Gestion de l'arborescence AD**
+    1. Création des OU
+    2. Création des groupes
+    3. Création des comptes
+3. **Création d'une VM Serveur Linux Debian**
+    1. Mise sur le domaine AD
+    2. Accessible en SSH
+4. **Création d'une VM client**
+    1. Sur le domaine AD
+    2. Avec un compte utilisateur ayant un accès SSH sur le serveur Linux
+5. **Automatisation**
+    1. Automatisation complète à partir du fichier CSV
+6. **Documentation**
+    1. Création des structures de documentation (README.md, Install et user guide)
+
+## Récapitulatif des Tâches
+
+| Personne | Rôle               | Tâches                                                                                                                                                                                                  |
+| -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mina     | Développeuse       | - Etablissement d'une partie de la liste de matériel  -Doc sur l'AD|
+| Julie    | Développeuse       | - Découpage réseau                                                                                                                                                                                      |
+| Joris    | Product Owner (PO) | - Script d'ajout d'utilisateurs AD<br>- Documentation                                                                                                                                                   |
+| Nicolas  | Développeur        | - Installation du serveur Windows GUI (DHCP, DNS)<br>- Installation de Windows Core (réplication)  -Doc                                                                                                      |
+| Mohammed | Scrum Master (SM)  | - Création VM serveur Debian<br>- Création VM client Windows 10<br>- Ajout des VMs sur l'AD et configuration des pare-feux<br>- Installation et configuration du SSH<br>- Doc |
+
+
+## Choix Techniques
+
+- VM Serveur Linux Debian
+- VM client Windows 10
+- Serveur Windows Server 2022 GUI
+- Serveur Windows Server 2022 Core
+
+## Difficultés Rencontrées :
     
-    - Scrum Master (SM) : Mohammed
-    - Product Owner (PO) : Joris
-    - Developpeurs : Julie, Mina, Nicolas
-- **Choix Techniques :**
+    - 
+    - 
+## Solutions Trouvées :
     
-    - N/A pour ce sprint
-- **Difficultés Rencontrées :**
-    
-    - Manque de documentation sur l'infrastructure actuelle.
-    - Variété de matériels sans standardisation.
-- **Solutions Trouvées :**
-    
-    - Audit matériel détaillé pour recenser tous les équipements.
-- **Améliorations Possibles :**
-    
-    - Standardisation des équipements futurs pour faciliter la gestion et la maintenance.
+    - 
+    - 
+## Améliorations Possibles :
+
+    -
+
+  
+
 ---
 #### Sprint 2 : 
 
