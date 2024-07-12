@@ -2,17 +2,17 @@
 
 | Fonction de la VM          | Serveur                     | Serveur             |  Serveur          | Client         |
 | -------------------------- | --------------------------- | ------------------- | ----------------- | -------------- |
-| Nom                        | G1-SERV-WinGui              |  G1-SERV-WinCore    |   G1-SERV-DEBIAN  | CLIENT3        |
+| Nom                        | G1-SERV-WinGui              |  G1-SERV-WinCore    |   G1-SERV-DEBIAN  | G1-CLIENT-WIN10        |
 | OS                         | Windows Server 2022         | Windows Server 2022 |    Debian 12      | Windows 10     |
 | OS version                 | Standard Desktop Experience | Standard            |   12 (Bookworm)   | Professionnel  |
 | RAM                        | 4/8 Go                      | 2/4 Go              |   2/4 Go          | 2/4 Go         |
 | Langue à installer         | English (US)                | English (US)        |    English (US)   | French         |
 | Time and currency/keyboard | French                      | French              |    French         | French         |
 | Carte réseau               | Réseau privé                | Réseau privé        |    Réseau privé   | Réseau privé   |
-| Adresse IP                 | 172.18.1.x/24               | 172.18.1.x/24       |    172.18.1.x/24  |  172.18.2.x/24 |
-| DNS                        | 172.18.1.x                  | 172.18.1.x          |    172.18.1.x/24  | 172.18.1.x     |
-| Utilisateur local          | Administrator               | Administrator       |     Wilder        | Wilder         |
-| Firewall                   | Désactivé                   | Désactivé           |     Désactuvé     | Désactivé      |
+| Adresse IP                 | 172.18.1.250/24               | 172.18.1.251/24       |    172.18.1.60/24  |  172.18.2.20/24 |
+| DNS                        | 172.18.1.250                  | 172.18.1.250          |    172.18.1.250  | 172.18.1.250     |
+| Utilisateur local          | Administrator               | Administrator       |     Wilder        | Sysadmin         |
+| Firewall                   | Désactivé                   | Désactivé           |  Régles allow :SSH et ICMP4     | Régles allow: SSH et ICMP4      |
 
 
 
