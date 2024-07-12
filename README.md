@@ -48,11 +48,11 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 
 | Personne | Rôle               | Tâches                                                                                                                                                                                                  |
 | -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mina     | Développeuse       | - Etablissement d'une partie de la liste de matériel<br>  -Doc sur l'AD|
+| Mina     | Développeuse       | - Etablissement d'une partie de la liste de matériel<br>  - [Notre solution AD](Ressources/Doc_Active_Directory.md) <br> - [Notre solution Serveur de Backup](Ressources/Doc%20cr%C3%A9er%20une%20backup%20de%20notre%20serveur.md)|
 | Julie    | Développeuse       | - Découpage réseau  [Accéder à mon document](Ressources/decoupage_réseau.md)   |
-| Joris    | Product Owner (PO) | - Script d'ajout d'utilisateurs AD<br>  -[Doc étape 3](S09/S09_Install.md)                                                                                                                                                   |
-| Nicolas  | Développeur        | - Installation du serveur Windows GUI (DHCP, DNS)<br>- Installation de Windows Core (réplication)<br>  -[Doc étape 1](S09/S09_Install.md)                                                                                                      |
-| Mohammed | Scrum Master (SM)  | - Création VM serveur Debian<br>- Création VM client Windows 10<br>- Ajout des VMs sur l'AD et configuration des pare-feu<br>- Installation et configuration du SSH<br>-[Doc étape 2](S09/S09_Install.md) |
+| Joris    | Product Owner (PO) | - Script d'ajout d'utilisateurs AD<br>  - [Doc étape 3](S09/S09_Install.md)                                                                                                                                                   |
+| Nicolas  | Développeur        | - Installation du serveur Windows GUI (DHCP, DNS)<br>- Installation de Windows Core (réplication)<br>  - [Doc étape 1](S09/S09_Install.md)                                                                                                      |
+| Mohammed | Scrum Master (SM)  | - Création VM serveur Debian<br>- Création VM client Windows 10<br>- Ajout des VMs sur l'AD et configuration des pare-feu<br>- Installation et configuration du SSH<br>- [Doc étape 2](S09/S09_Install.md) |
 
 
 ## Choix Techniques
