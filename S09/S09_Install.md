@@ -105,10 +105,10 @@ sudo realm discover BillU.Paris
 **But :** Intégrer la machine Debian au domaine Active Directory.
 
 ```bash
-sudo realm join --user=Administrateur BillU.Paris
+sudo realm join --user=Administrator BillU.Paris
 ```
 
-**Explication :** `Administrateur` est un compte utilisateur AD avec les droits nécessaires pour ajouter des machines au domaine. Vous serez invité à entrer le mot de passe de cet utilisateur.
+**Explication :** `Administrator` est un compte utilisateur AD avec les droits nécessaires pour ajouter des machines au domaine. Vous serez invité à entrer le mot de passe de cet utilisateur.
 
 #### E. Configurer `sssd` pour utiliser les comptes AD
 
@@ -123,16 +123,23 @@ sudo nano /etc/sssd/sssd.conf
     
     
 ```ini
-    [sssd] services = nss, pam 
-    config_file_version = 2 
-    domains = BillU.Paris  
-    [domain/BillU.Paris] 
-    ad_domain = BillU.Paris 
-    krb5_realm = BillU.Paris 
-    realmd_tags = manages-system joined-with-samba 
-    cache_credentials = True 
-    id_provider = ad 
-    access_provider = ad
+[sssd]
+services = nss, pam
+config_file_version = 2
+domains = BillU.Paris
+
+[domain/BillU.Paris]
+ad_domain = BillU.Paris
+krb5_realm = BILLU.PARIS
+realmd_tags = manages-system joined-with-samba
+cache_credentials = True
+id_provider = ad
+access_provider = ad
+fallback_homedir = /home/%u@%d
+ldap_id_mapping = True
+use_fully_qualified_names = True
+simple_allow_users = *@BillU.Paris
+
 ```    
 
 3. **Définir les permissions appropriées pour le fichier :**
@@ -145,11 +152,32 @@ sudo chmod 600 /etc/sssd/sssd.conf
 
 **Explications :**
 
-- `services` : Les services fournis par `sssd` (NSS et PAM).
-- `domains` : Le domaine géré par `sssd`.
-- `ad_domain` et `krb5_realm` : Spécifient le domaine AD et le realm Kerberos.
-- `cache_credentials` : Active la mise en cache des identifiants.
-- `id_provider` et `access_provider` : Utilisent `ad` comme fournisseur d'identité et de contrôle d'accès.
+
+- **services = nss, pam :** Spécifie les services que SSSD doit fournir. `nss` permet à SSSD de gérer la résolution d'identifiants via NSS (Name Service Switch), tandis que `pam` permet l'intégration de SSSD avec PAM (Pluggable Authentication Modules) pour l'authentification.
+    
+- **config_file_version = 2 :** Indique la version du format de fichier de configuration utilisé par SSSD.
+    
+- **domains = BillU.Paris :** Liste les domaines gérés par SSSD. Dans ce cas, `BillU.Paris` est le domaine Active Directory que SSSD va gérer.
+
+- **ad_domain = BillU.Paris :** Spécifie le nom du domaine Active Directory que SSSD va gérer.
+    
+- **krb5_realm = BILLU.PARIS :** Définit le realm Kerberos associé au domaine AD pour l'authentification sécurisée.
+    
+- **realmd_tags = manages-system joined-with-samba :** Étiquettes spéciales utilisées par Realmd pour gérer le système et intégrer avec Samba.
+    
+- **cache_credentials = True :** Active la mise en cache des informations d'identification des utilisateurs pour améliorer les performances et la disponibilité en cas de déconnexion du domaine.
+    
+- **id_provider = ad :** Indique que SSSD doit utiliser le fournisseur d'identité AD pour récupérer les informations d'identification et les informations sur les utilisateurs à partir d'Active Directory.
+    
+- **access_provider = ad :** Utilise AD comme fournisseur pour gérer les accès, permettant de contrôler les autorisations basées sur les groupes AD.
+    
+- **fallback_homedir = /home/%u@%d :** Spécifie le répertoire home par défaut pour les utilisateurs lorsque le répertoire home défini dans AD n'est pas disponible.
+    
+- **ldap_id_mapping = True :** Active la cartographie des identifiants LDAP, permettant à SSSD de mapper les identifiants AD aux identifiants Unix.
+    
+- **use_fully_qualified_names = True :** Utilise les noms complets qualifiés pour les utilisateurs et les groupes AD, assurant une référence unifiée des objets AD.
+    
+- *_simple_allow_users = _@BillU.Paris :__ Autorise tous les utilisateurs du domaine `BillU.Paris` à se connecter. Cette option est pratique pour permettre à tous les utilisateurs du domaine d'accéder au système sans spécifier chaque utilisateur individuellement.
 
 #### F. Démarrer et activer les services `sssd` et `oddjobd`
 
@@ -158,7 +186,10 @@ sudo chmod 600 /etc/sssd/sssd.conf
 
 ```bash
 
-sudo systemctl start sssd sudo systemctl enable sssd  sudo systemctl start oddjobd sudo systemctl enable oddjobd
+sudo systemctl start sssd
+sudo systemctl enable sssd
+sudo systemctl start oddjobd
+sudo systemctl enable oddjobd
 ```
 #### G. Autoriser les utilisateurs du domaine à se connecter via SSH
 
@@ -191,32 +222,20 @@ sudo systemctl start sssd sudo systemctl enable sssd  sudo systemctl start oddjo
 
 #### E. Configuration de PAM pour l'authentification SSH
 
-1. **Éditer le fichier de configuration PAM SSH :**
+1. **Configurer PAM pour la création automatique des répertoires homes :**
     
     
 ```bash   
-    sudo nano /etc/pam.d/sshd
+    sudo nano /etc/pam.d/common-session
 ```
     
 2. **Ajouter la configuration suivante à la fin du fichier :**
     
     
 ```bash    
-
-auth    required    pam_env.so
-auth    sufficient  pam_winbind.so
-auth    sufficient  pam_unix.so nullok_secure try_first_pass
-auth    required    pam_deny.so
-
-account required    pam_unix.so
-
+session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
-    
-    - `pam_env.so` : Charge les variables d'environnement.
-    - `pam_winbind.so` : Permet l'authentification avec Winbind (pour les comptes AD).
-    - `pam_unix.so` : Fournit l'authentification Unix de secours.
-    - `pam_deny.so` : Rejette l'accès si les modules précédents ne réussissent pas.
-    - `pam_unix.so` : Gère les aspects du compte Unix.
+   
     
 3. **Enregistrer et quitter le fichier.**
     
