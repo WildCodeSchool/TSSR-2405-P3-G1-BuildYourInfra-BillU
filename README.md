@@ -2,6 +2,10 @@
 
 # Projet 3 : Construction d’une infrastructure réseau pour BillU
 
+<p align="center">
+  <img width="50%" src="Ressources/Images/Company_Logo.png" alt="Logo">
+</p>
+
 ## Présentation du Projet
 
 **Contexte :** BillU, une filiale de RemindMe spécialisée dans le développement de logiciels de facturation, a besoin d'une nouvelle infrastructure réseau. Notre équipe de cinq étudiants en formation de technicien support systèmes et réseaux a été mandatée pour réaliser ce projet. Le siège de BillU est situé à Paris, 20ème arrondissement, et compte 167 employés répartis en 9 départements.
