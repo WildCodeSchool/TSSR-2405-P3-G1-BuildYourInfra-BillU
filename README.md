@@ -96,7 +96,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
   
 
 ---
-#### Sprint 2 : 
+#### Sprint 2 : Implémentation et Configuration du Réseau
 
 - **Membres du Groupe (Rôles) :**
     
