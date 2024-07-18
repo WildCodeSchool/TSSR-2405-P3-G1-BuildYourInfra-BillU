@@ -5,9 +5,10 @@
 Vous pouvez utiliser un éditeur de texte comme nano pour créer et éditer le fichier.
 
 ```bash
+
 nano glpi_config.txt
 
-Contenu du fichier de configuration: glpi_config.txt
+## Contenu du fichier de configuration: glpi_config.txt
 Assurez-vous que le fichier de configuration glpi_config.txt contient les variables nécessaires :
 
 DB_NAME1="glpi_db1"
@@ -20,7 +21,7 @@ DB_USER2="glpi_user2"
 DB_PASSWORD2="glpi_password2"
 DOMAIN2="glpi_domain2"
 
-Voici mon script bash
+## Voici mon script bash
 
 #!/bin/bash
 
