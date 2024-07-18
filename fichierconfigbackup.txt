@@ -1,0 +1,6 @@
+server-name=WINSRV-BACKUP
+IPServ=172.18.1.251
+IPDNS=172.18.1.250
+DomainName=BillU.Paris
+AdminUser=Administrator
+adminPW=Azerty1*
