@@ -98,25 +98,76 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 ---
 #### Sprint 2 : Implémentation et Configuration du Réseau
 
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
+# Objectifs du sprint
 
-    -
+1. **GPO de sécurité** - Création d'au moins 10 GPO dont 7 dans la liste ci-dessous :
+    1. Politique de mot de passe (complexité, longueur, etc.)
+    2. Verrouillage de compte (blocage de l'accès à la session après quelques erreurs de mot de passe)
+    3. Restriction d'installation de logiciel pour les utilisateurs non-administrateurs
+    4. Gestion de Windows update (heure, délai avant installation, etc.)
+    5. Blocage de l'accès à la base de registre
+    6. Blocage complet ou partiel au panneau de configuration
+    7. Restriction des périphériques amovibles
+    8. Gestion d'un compte du domaine qui est administrateur local des machines
+    9. Gestion du pare-feu
+    10. Écran de veille avec mot de passe en sortie
+    11. Forçage du type d'utilisation sécurisée du bureau à distance
+    12. Limitation des tentatives d'élévation de privilèges
+    13. Définition de scripts de démarrage pour les machines et/ou les utilisateurs
+    14. Politique de sécurité PowerShell
+
+2. **GPO standard** - Création d'au moins 5 GPO dont 3 dans la liste ci-dessous :
+    1. Fond d'écran
+    2. Mappage de lecteurs
+    3. Gestion de l'alimentation
+    4. Déploiement (publication) de logiciels
+    5. Redirection de dossiers (Documents, Bureau, etc.)
+    6. Configuration des paramètres du navigateur (Firefox ou Chrome)
+
+3. **Création d'un serveur GLPI** - Sur Debian 11 ou 12 en CLI
+    1. Synchronisation AD
+    2. Gestion de parc : Inclusion des objets AD (utilisateurs, groupes, ordinateurs)
+    3. Gestion des incidents : Mise en place d'un système de ticketing
+    4. Accès et gestion à partir d'un client
+
+4. **Scripts d'automatisation** : 
+    1. Sur un serveur Debian, installation de GLPI à partir d'un fichier de configuration qui contient par exemple le nom de la base de données, le nom du compte, etc.
+    2. Sur un Windows Server Core, installation du rôle AD-DS, ajout à un domaine existant. On se base sur un fichier de configuration qui contient le nom du serveur, l'adresse IP du DNS, le nom du domaine, etc.
+
+# Récapitulatifs des Tâches
+
+| Personne   | Rôle                   | Tâches                                                                                                          |
+|------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
+| Nicolas    | Scrum Master (SM)      | Développement d'un script automatisé pour déployer le rôle AD DS sur Windows Server Core en se basant sur un fichier de configuration. |
+| Mohammed   | Développeur            | (Tâches non spécifiées)                                                                                         |
+| Joris      | Développeur            | Création et configuration des GPO pour renforcer la sécurité et standardiser les paramètres sur les postes de travail Windows. |
+| Julie      | Développeuse           | Rédaction d'une documentation détaillée pour chaque étape des projets.                                          |
+| Mina       | Product Owner (PO)     | Déploiement d'un serveur GLPI sur Debian à travers un script bash et un fichier de configuration.               |
+
+# Choix Techniques
+
+- VM Serveur Linux Debian
+- VM client Windows 10
+- Serveur Windows Server 2022 GUI
+- Serveur Windows Server 2022 Core
+
+# Difficultés Rencontrées
+
+- **Script PowerShell** : Le script n'a pas exploité les variables correctement comme prévu. L'adresse IP indiquée est invalide en raison de son attribution antérieure. Bien que le script fonctionne globalement, une dernière erreur persiste concernant l'adresse IP dans le fichier de configuration.
+- **Gestion des Objets de Stratégie de Groupe (GPO)** : Les GPO sont actuellement en anglais.
+- **Script Bash** : Des erreurs ont été observées au niveau des variables, des boucles, et des logs.
+
+# Solutions Trouvées
+
+- **Script PowerShell** : Une adresse IP libre a été utilisée pour résoudre l'erreur de configuration.
+- **Gestion des Objets de Stratégie de Groupe (GPO)** : Malgré leur complexité, les GPO ont été traduits en français.
+- **Script Bash** : Correction apportée aux logs.
+
+# Améliorations Possibles
+
+- **Pour le Script PowerShell** : Améliorer la gestion et l'utilisation des variables afin d'éviter les erreurs futures.
+- **Pour les GPO** : Automatiser la traduction pour éviter les complications manuelles.
+- **Pour le Script Bash** : Réviser la gestion des variables et des boucles pour garantir un fonctionnement correct.
 
   ---
 #### Sprint 3 : 
