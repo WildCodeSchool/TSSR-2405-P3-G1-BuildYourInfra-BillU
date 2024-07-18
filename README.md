@@ -139,7 +139,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Personne   | Rôle                   | Tâches                                                                                                          |
 |------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
 | Nicolas    | Scrum Master (SM)      | Développement d'un script automatisé pour déployer le rôle AD DS sur Windows Server Core en se basant sur un fichier de configuration. |
-| Mohammed   | Développeur            | (Tâches non spécifiées)                                                                                         |
+| Mohammed   | Développeur            | Assistance technique et optimisation des scripts bash pour assurer la robustesse et la fiabilité des automatisations, création du logo, arborescence AD et présentation pwp                                                                                        |
 | Joris      | Développeur            | Création et configuration des GPO pour renforcer la sécurité et standardiser les paramètres sur les postes de travail Windows. |
 | Julie      | Développeuse           | Rédaction d'une documentation détaillée pour chaque étape des projets.                                          |
 | Mina       | Product Owner (PO)     | Déploiement d'un serveur GLPI sur Debian à travers un script bash et un fichier de configuration.               |
