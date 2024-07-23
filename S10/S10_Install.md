@@ -1,4 +1,4 @@
-# Script bash d'automatisation GLPI
+# Etape 1 : Script bash d'automatisation d'installation GLPI
 
 ## Créer le fichier glpi_config.txt
 
@@ -120,11 +120,107 @@ Cette démarche exploite l'expansion des variables indirectes `${!VAR}` pour ré
 
 Par l'exécution `systemctl restart apache2`, Apache est redémarré pour appliquer les nouvelles configurations.
 
-### Connexion à GLPI
+```
 
-Si l'adresse IP de notre serveur GLPI est 172.18.1.60, voici la procédure pour nous connecter à GLPI depuis notre navigateur web :
-- **Formuler l'URL** : L'URL complète permettant d'accéder à GLPI via cette adresse IP serait [http://172.18.1.60/glpi](http://172.18.1.60/glpi).
+### Etape 2 : Connexion à GLPI
+
+Ladresse IP de notre serveur GLPI est 172.18.1.60, voici la procédure pour nous connecter à GLPI depuis notre navigateur web :
+- **Formuler l'URL** : L'URL complète permettant d'accéder à GLPI via cette adresse IP serait [http://172.18.1.60/glpi](http://172.18.1.60/glpi_domain1)
 - **Ouvrir notre Navigateur** : Lancez notre navigateur web habituel (tel que Chrome, Firefox, etc.).
-- **Saisir l'URL** : Dans la barre d'adresse du navigateur, entrez [http://172.18.1.60/glpi](http://172.18.1.60/glpi).
-- **Appuyer sur Entrée** : Pressez la touche Entrée pour accéder à cette adresse.
+- **Saisir l'URL** : Dans la barre d'adresse du navigateur, entrez [http://172.18.1.60/glpi](http://172.18.1.60/glpi_domain1).
 - **Page de Connexion** : Nous devrions maintenant visualiser la page de connexion de GLPI.
+- **Suivre les instructions d'installation de GLPI** en spécifiant les informations de la base de données MariaDB configurées précédemment.
+
+  
+### Etape 3 : Synchronisation AD
+
+
+Après avoir installé et configuré GLPI, vous pouvez configurer la synchronisation avec Active Directory (AD) pour importer des utilisateurs, groupes et ordinateurs. Voici une procédure détaillée pour configurer la synchronisation AD dans GLPI.
+
+#### Partie 1: Installation du plugin LDAP pour GLPI
+
+1. **Accédez à GLPI** via un navigateur web. Connectez-vous en tant qu'administrateur.
+2. **Installer le plugin LDAP**:
+    - Allez dans `Configuration > Plugins > Marketplace`.
+    - Recherchez le plugin `ldap` et installez-le.
+    - Activez le plugin une fois l'installation terminée.
+
+#### Partie 2: Configuration du serveur LDAP
+
+1. **Ajouter un serveur LDAP**:
+    
+    - Allez dans `Configuration > Authentification > LDAP directories`.
+    - Cliquez sur `+` pour ajouter un nouveau répertoire LDAP.
+    - Remplissez les informations du serveur LDAP :
+        - **Nom**: Nom descriptif de votre serveur LDAP.
+        - **Serveur LDAP**: Adresse de votre serveur AD.
+        - **Port LDAP**: Par défaut, 389 pour LDAP ou 636 pour LDAPS (sécurisé).
+        - **Version de protocole LDAP**: 3.
+        - **BaseDN**: La racine de votre arbre LDAP (par exemple, `dc=example,dc=com`).
+        - **Connexion DN**: L'utilisateur avec lequel GLPI se connectera à AD (par exemple, `cn=admin,dc=example,dc=com`).
+        - **Mot de passe**: Mot de passe de l'utilisateur de connexion.
+        - **Filtre utilisateur**: Filtre LDAP pour trouver les utilisateurs (par exemple, `(objectClass=user)`).
+        - **Filtre groupe**: Filtre LDAP pour trouver les groupes (par exemple, `(objectClass=group)`).
+     
+![Config_srv_LDAP](/Ressources/Images/srv_ldap.png)  
+
+2. **Tester la connexion**:
+    
+    - Après avoir rempli les informations, cliquez sur `Tester la connexion LDAP` pour vérifier que GLPI peut se connecter à votre AD.
+
+#### Partie 3: Configuration de la synchronisation des utilisateurs
+
+1. **Configurer les champs utilisateurs**:
+    
+    - Toujours dans la section `LDAP directories`, après avoir ajouté et testé votre serveur LDAP, cliquez sur `Configurer les champs`.
+    - Mappez les champs LDAP aux champs utilisateurs GLPI. Par exemple :
+        - **Login**: `sAMAccountName`
+        - **Nom**: `sn`
+        - **Prénom**: `givenName`
+        - **Email**: `mail`
+2. **Configurer les options de synchronisation**:
+    
+    - Dans la même section, configurez les options de synchronisation selon vos besoins (par exemple, fréquence de synchronisation, création automatique de comptes, etc.).
+ 
+#### Partie 4: Configuration de la synchronisation des groupes 
+
+
+1. **Accédez à la configuration des groupes dans GLPI** :
+    
+    - Allez dans `Configuration > Authentification > LDAP directories`.
+    - Sélectionnez votre serveur LDAP, puis cliquez sur `Groupes`.
+2. **Remplissez les champs avec les valeurs appropriées** :
+    
+    - **Type de recherche** : `Dans les utilisateurs`
+    - **Attribut utilisateur indiquant ses groupes** : `memberOf`
+    - **Filtre pour la recherche dans les groupes** : `(objectClass=group)`
+    - **Attribut des groupes contenant les utilisateurs** : `member`
+    - **Utiliser le DN pour la recherche** : `Non`
+3. **Cliquez sur `Enregistrer`** pour sauvegarder la configuration.
+    
+
+### Vérifier la configuration
+
+1. **Tester la connexion LDAP** :
+    
+    - Allez dans `Configuration > Authentification > LDAP directories`.
+    - Sélectionnez votre serveur LDAP et cliquez sur `Tester la connexion`.
+  
+![test_connexion_ldap](/Ressources/Images/test_authenti.png)  
+    
+2. **Lancer une synchronisation** :
+    
+    - Allez dans `Administration > Groupes / Utilisateurs` .
+    - Cliquez sur `Importer un groupe / utilisateur LDAP`.
+    - Sélectionnez votre serveur LDAP et cliquez sur `Rechercher`.
+    - Sélectionnez les groupes ou utilisateurs à importer et cliquez sur `Importer`.
+    
+Résultat pour utilisateurs :
+
+![Config_users_ad](/Ressources/Images/users_glpi_ad.png)   
+
+Résultat pour les groupes : 
+
+![Config_grp_ad](/Ressources/Images/grp_ad_glpi.png) 
+
+
