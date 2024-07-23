@@ -203,7 +203,7 @@ Après avoir installé et configuré GLPI, vous pouvez configurer la synchronisa
 Il est primordial d'installer le plugin FusionIventory sur le serveur GLPI et sur les ordinateurs clients afin de permettre cette synchronisaiton,  
 je me suis basé sur cet execellent tutoriel du site : www.tutos-info.fr pour la réalisation.
 
-[Plugin_agent_FusionInventory](Ressources/Images/tuto_ordi_ad.pdf) 
+[Plugin_agent_FusionInventory](https://tutos-info.fr/wp-content/uploads/2023/02/TUTORIEL-INSTALLER-FUSION-INVENTORY-SUR-GLPI-10.pdf) 
 
 ### Vérifier la configuration
 
