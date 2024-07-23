@@ -229,4 +229,6 @@ Résultat pour les groupes :
 
 ![Config_grp_ad](/Ressources/Images/grp_ad_glpi.png) 
 
+Résultat pour les ordinateurs  : 
 
+![Config_ordi_ad](/Ressources/Images/ordi_ad_glpi.png) 
