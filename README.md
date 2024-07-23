@@ -96,7 +96,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
   
 
 ---
-#### Sprint 2 : Implémentation et Configuration du Réseau
+# Sprint 2 : Implémentation et Configuration du Réseau
 
 # Objectifs du sprint
 
@@ -139,7 +139,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Personne   | Rôle                   | Tâches                                                                                                          |
 |------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
 | Nicolas    | Scrum Master (SM)      | Développement d'un script automatisé pour déployer le rôle AD DS sur Windows Server Core en se basant sur un fichier de configuration. |
-| Mohammed   | Développeur            | Assistance technique et optimisation des scripts bash pour assurer la robustesse et la fiabilité des automatisations, création du logo, arborescence AD et présentation pwp                                                                                        |
+| Mohammed   | Développeur            | Synchro AD, Gestion de parc et d'incidents [Doc étapes 2_à_4](S10/S10_Install.md), accès et gestion à partir d'un client [User_Guide](S10/S10_User_Guide.md), support script bash, création du logo, [Arborescence_AD](Ressources/arbor_ad.png) et présentation pwp                                                                                        |
 | Joris      | Développeur            | Création et configuration des GPO pour renforcer la sécurité et standardiser les paramètres sur les postes de travail Windows. |
 | Julie      | Développeuse           | Rédaction d'une documentation détaillée pour chaque étape des projets.                                          |
 | Mina       | Product Owner (PO)     | Déploiement d'un serveur GLPI sur Debian à travers un script bash et un fichier de configuration.               |
