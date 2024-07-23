@@ -197,7 +197,13 @@ Après avoir installé et configuré GLPI, vous pouvez configurer la synchronisa
     - **Attribut des groupes contenant les utilisateurs** : `member`
     - **Utiliser le DN pour la recherche** : `Non`
 3. **Cliquez sur `Enregistrer`** pour sauvegarder la configuration.
-    
+
+#### Partie 5: Synchroniser les Ordinateurs AD avec GLPI  
+
+Il est primordial d'installer le plugin FusionIventory sur le serveur GLPI et sur les ordinateurs clients afin de permettre cette synchronisaiton,  
+je me suis basé sur cet execellent tutoriel du site : www.tutos-info.fr pour la réalisation.
+
+[synchro_ordi_ad](TSSR-2405-P3-G1-BuildYourInfra-BillU/Ressources/Images/tuto_ordi_ad.pdf) 
 
 ### Vérifier la configuration
 
