@@ -231,4 +231,31 @@ Résultat pour les groupes :
 
 Résultat pour les ordinateurs  : 
 
-![Config_ordi_ad](/Ressources/Images/ordi_ad_glpi.png) 
+![Config_ordi_ad](/Ressources/Images/ordi_ad_glpi.png)   
+
+### Etape 4 : Configuration du système de ticketing 
+
+1. **Configurer les catégories de tickets** :
+    
+    - Allez dans `Assistance > Configuration > Catégories`.
+    - Ajoutez des catégories de tickets selon vos besoins (par exemple, `Incident`, `Demande`, etc.).
+2. **Configurer les règles de notification** :
+    
+    - Allez dans `Configuration > Notifications`.
+    - Ajoutez des règles de notification pour les tickets (par exemple, notification par e-mail lors de la création d'un ticket).
+3. **Configurer les profils et les droits d'accès** :
+    
+    - Allez dans `Administration > Profils`.
+    - Configurez les profils d'utilisateurs pour définir les droits d'accès au système de ticketing.
+4. **Configurer le formulaire de ticket** :
+    
+    - Allez dans `Assistance > Tickets > +`.
+    - Configurez le formulaire de ticket selon vos besoins.
+  
+5. **Tableau de bord de la configuration** :
+
+![ticket_admin](/Ressources/Images/tdb_admin_glpi.png)  
+  
+Résultat ticketing lors de la réception d'un incident par l'admin :
+
+![ticket_admin](/Ressources/Images/glpi_admin.png)  
