@@ -134,7 +134,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
     1. Sur un serveur Debian, installation de GLPI à partir d'un fichier de configuration qui contient par exemple le nom de la base de données, le nom du compte, etc.
     2. Sur un Windows Server Core, installation du rôle AD-DS, ajout à un domaine existant. On se base sur un fichier de configuration qui contient le nom du serveur, l'adresse IP du DNS, le nom du domaine, etc.
 
-# Récapitulatifs des Tâches
+## Récapitulatifs des Tâches
 
 | Personne   | Rôle                   | Tâches                                                                                                          |
 |------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -179,7 +179,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 - Gestion de la télémétrie sur les clients Windows 10/11, via script ou GPO.
 - Clone d'un template de routeur VyOS sur Proxmox avec documentation associée.
 
-- **Membres du Groupe (Rôles) :**
+## Récapitulatifs des Tâches :
   
 
  | Personne   | Rôle                   | Tâches                                                                                                           |
