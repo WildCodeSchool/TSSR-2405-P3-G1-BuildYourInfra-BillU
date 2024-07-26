@@ -166,47 +166,56 @@ Pour modifier la GPO :
 - **Chemin :** `Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options`
   - **Paramètre :** Block Microsoft Accounts
   - **Configuration :** Users can't add or log on with Microsoft accounts
+  - **Description :** Empêche les utilisateurs d'ajouter ou de se connecter avec des comptes Microsoft.
 
 - **Chemin :** `Computer Configuration/Administrative Templates/Control Panel/Regional and Language Options`
   - **Paramètre :** Allow users to enable online speech recognition services
   - **Configuration :** Disabled
+  - **Description :** Désactive la possibilité pour les utilisateurs d'activer les services de reconnaissance vocale en ligne.
 
 - **Chemin :** `Computer Configuration/Administrative Templates/Control Panel/Regional and Language Options/Handwriting personalization`
   - **Paramètre :** Turn off automatic learning
   - **Configuration :** Disabled
+  - **Description :** Désactive l'apprentissage automatique de la personnalisation de l'écriture manuscrite.
 
 - **Chemin :** `Computer Configuration/Administrative Templates/System/Internet Communication Management/Internet Communication settings`
   - **Paramètre :** Turn Off access to the store
   - **Configuration :** Enabled
+  - **Description :** Empêche l'accès au Microsoft Store.
 
 #### Désactivation des services de télémétrie et de collecte de données
 - **Désactiver les ID de publicité :**
   - **Chemin :** `Computer Configuration/Administrative Templates/System/User Profiles`
   - **Paramètre :** Turn off the advertising ID
   - **Configuration :** Enabled
+  - **Description :** Désactive l'ID de publicité utilisé pour les expériences publicitaires personnalisées.
 
 #### Gestion des mises à jour automatiques
 - **Configurer les mises à jour automatiques :**
   - **Chemin :** `Computer Configuration/Administrative Templates/Windows Components/Windows Update`
   - **Paramètre :** Configure Automatic Updates
   - **Configuration :** Enabled, et mettre le nombre de minutes pour la configuration (ex : 15mn).
+  - **Description :** Configure les mises à jour automatiques et définit le délai de redémarrage après installation des mises à jour.
 
 #### Réseaux et Internet
 - **Désactiver Interdire la connexion aux réseaux Mobile Broadband en itinérance :**
   - **Chemin :** `Computer Configuration/Administrative Templates/Network/Windows Connection Manager`
   - **Paramètre :** Prohibit connection to roaming Mobile Broadband networks
   - **Configuration :** Enabled
+  - **Description :** Empêche la connexion aux réseaux à large bande mobile en itinérance.
 
 - **Désactiver l'envoi de l'historique de saisie à Microsoft :**
   - **Chemin :** `Computer Configuration/Administrative Templates/System/OS Policies`
   - **Paramètre :** Allow Clipboard History
   - **Configuration :** Disabled
+  - **Description :** Empêche l'envoi de l'historique du presse-papiers à Microsoft.
 
 #### Autres paramètres de confidentialité
 - **Désactiver l'assistant de compatibilité des programmes :**
   - **Chemin :** `Computer Configuration/Administrative Templates/Windows Components/Application Compatibility`
   - **Paramètre :** Turn off Program Compatibility Assistant
   - **Configuration :** Enabled
+  - **Description :** Désactive l'assistant de compatibilité des programmes, qui recherche des problèmes de compatibilité connus pour les programmes plus anciens.
 
 ### Étape 4 : Créer une nouvelle GPO 
 Pour créer une GPO :
@@ -218,5 +227,6 @@ Pour créer une GPO :
 - **Chemin :** `User Configuration/Policies/Administrative Templates/Windows Component/Cloud Content`
   - **Paramètre :** Do not use diagnostic data for tailored experience
   - **Configuration :** Enabled
+  - **Description :** Empêche l'utilisation des données de diagnostic pour des expériences personnalisées basées sur le cloud.
 
         
