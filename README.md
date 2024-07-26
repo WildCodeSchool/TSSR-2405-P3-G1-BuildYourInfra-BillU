@@ -98,7 +98,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 ---
 # Sprint 2 : Implémentation et Configuration du Réseau
 
-# Objectifs du sprint
+## Objectifs du sprint
 
 1. **GPO de sécurité** - Création d'au moins 10 GPO dont 7 dans la liste ci-dessous :
     1. Politique de mot de passe (complexité, longueur, etc.)
@@ -144,53 +144,72 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Julie      | Développeuse           | Rédaction d'une documentation détaillée pour chaque étape des projets.                                          |
 | Mina       | Product Owner (PO)     | Déploiement d'un serveur GLPI sur Debian à travers un script bash et un fichier de configuration.               |
 
-# Choix Techniques
+## Choix Techniques
 
 - VM Serveur Linux Debian
 - VM client Windows 10
 - Serveur Windows Server 2022 GUI
 - Serveur Windows Server 2022 Core
 
-# Difficultés Rencontrées
+## Difficultés Rencontrées
 
 - **Script PowerShell** : Le script n'a pas exploité les variables correctement comme prévu. L'adresse IP indiquée est invalide en raison de son attribution antérieure. Bien que le script fonctionne globalement, une dernière erreur persiste concernant l'adresse IP dans le fichier de configuration.
 - **Gestion des Objets de Stratégie de Groupe (GPO)** : Les GPO sont actuellement en anglais.
 - **Script Bash** : Des erreurs ont été observées au niveau des variables, des boucles, et des logs.
 
-# Solutions Trouvées
+## Solutions Trouvées
 
 - **Script PowerShell** : Une adresse IP libre a été utilisée pour résoudre l'erreur de configuration.
 - **Gestion des Objets de Stratégie de Groupe (GPO)** : Malgré leur complexité, les GPO ont été traduits en français.
 - **Script Bash** : Correction apportée aux logs.
 
-# Améliorations Possibles
+## Améliorations Possibles
 
 - **Pour le Script PowerShell** : Améliorer la gestion et l'utilisation des variables afin d'éviter les erreurs futures.
 - **Pour les GPO** : Automatiser la traduction pour éviter les complications manuelles.
 - **Pour le Script Bash** : Réviser la gestion des variables et des boucles pour garantir un fonctionnement correct.
 
   ---
-#### Sprint 3 : 
+# Sprint 3 : Configuration de la sécurité réseau avec pfSense et VyOS sur Proxmox, et gestion de la télémétrie sur Windows 10/11
+
+## Objectifs du sprint
+
+- Prise en main du pare-feu pfSense et configuration des règles de pare-feu (WAN et LAN).
+- Configuration du routeur VyOS sur l'infrastructure Proxmox en lien avec le PFsense.
+- Gestion de la télémétrie sur les clients Windows 10/11, via script ou GPO.
+- Clone d'un template de routeur VyOS sur Proxmox avec documentation associée.
 
 - **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
+  
 
-    -
+ | Personne   | Rôle                   | Tâches                                                                                                           |
+|------------|------------------------|------------------------------------------------------------------------------------------------------------------|
+| Nicolas    | Scrum Master (SM)      | - Prise en main du pare-feu pfSense et configuration des règles de pare-feu (WAN et LAN)                          |
+| Mohammed   | Développeur            | - Clone d'un template de routeur VyOS sur Proxmox avec documentation associée.                                    |
+|            |                        | - [Doc_Configuration_VYOS](S11/S11_Install.md)                                                                        |
+|            |                        | - Configuration du routeur VyOS sur l'infrastructure Proxmox en lien avec le PFsense.                             |
+| Joris      | Développeur            | - Création et configuration des GPO pour renforcer la sécurité et standardiser les paramètres sur les postes de travail Windows. |
+| Julie      | Développeuse           | - Configuration du routeur VyOS sur l'infrastructure Proxmox en lien avec le PFsense.                             |
+| Mina       | Product Owner (PO)     | - Gestion de la télémétrie sur les clients Windows 10/11, via script ou GPO.                                      |
+
+   
+## **Choix Techniques :**
+  
+- Utilisation de pfSense pour la gestion du pare-feu
+- Utilisation de VyOS comme routeur sur l'infrastructure Proxmox
+- Implémentation des GPO pour la gestion de la télémétrie sur Windows 10/11
+     
+## **Difficultés Rencontrées :**
+    
+    - Problèmes de routage entre les différents sous-réseaux
+      
+## **Solutions Trouvées :**
+    
+    - Ajustement des interfaces et des routes sur VyOS pour assurer une communication fluide entre les sous-réseaux
+      
+## **Améliorations Possibles :**
+
+    - Mettre en place une DMZ pour renforcer notre sécurité réseau
 
   ---
 #### Sprint 4 : 
