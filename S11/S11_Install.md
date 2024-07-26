@@ -138,4 +138,85 @@ exit`
     - Essayez de pinguer une adresse IP d'un autre sous réseau  `172.18.2.1` 
 
 ![PING](/Ressources/Images/ping_VYOS_PFS.png)
+
+# GPO Gestion de la télémétrie 
+
+Les GPO Gestion de la télémétrie sont des paramètres de stratégie de groupe utilisés pour configurer et contrôler la collecte de données de diagnostic et de télémétrie dans les systèmes Windows au sein d'un réseau. Ils permettent aux administrateurs de gérer et de limiter les informations envoyées à Microsoft, assurant ainsi la conformité aux politiques de confidentialité de l'organisation.
+
+## Pré-requis
+Il est impératif de s'assurer que la Console de Gestion des Stratégies de Groupe (GPMC) soit installée sur notre système.
+
+## Création d'une GPO pour les Ordinateurs 
+
+### Étape 1 : Ouvrir la Console de Gestion des Stratégies de Groupe (GPMC) 
+Pour ouvrir la Console :
+- Appuyez sur les touches `Win + R`, tapez `gpmc.msc` puis appuyez sur Entrée.
+
+### Étape 2 : Créer une nouvelle GPO 
+Pour créer une GPO :
+- Dans le volet de gauche, effectuez un clic droit sur le domaine ou l'unité d'organisation (OU) où vous souhaitez appliquer la GPO.
+- Sélectionnez l'option "Créer un objet de stratégie de groupe dans ce domaine".
+- Donnez un nom à la GPO, par exemple **Gestion télémétrie ordinateur**.
+
+### Étape 3 : Configurer les paramètres de télémétrie 
+Pour modifier la GPO :
+- Effectuez un clic droit sur la nouvelle GPO, puis sélectionnez "Modifier". Dans l'Éditeur de Gestion des Stratégies de Groupe, naviguez vers :
+
+#### GPO_C_ Télémétrie pour Ordinateur
+- **Chemin :** `Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options`
+  - **Paramètre :** Block Microsoft Accounts
+  - **Configuration :** Users can't add or log on with Microsoft accounts
+
+- **Chemin :** `Computer Configuration/Administrative Templates/Control Panel/Regional and Language Options`
+  - **Paramètre :** Allow users to enable online speech recognition services
+  - **Configuration :** Disabled
+
+- **Chemin :** `Computer Configuration/Administrative Templates/Control Panel/Regional and Language Options/Handwriting personalization`
+  - **Paramètre :** Turn off automatic learning
+  - **Configuration :** Disabled
+
+- **Chemin :** `Computer Configuration/Administrative Templates/System/Internet Communication Management/Internet Communication settings`
+  - **Paramètre :** Turn Off access to the store
+  - **Configuration :** Enabled
+
+#### Désactivation des services de télémétrie et de collecte de données
+- **Désactiver les ID de publicité :**
+  - **Chemin :** `Computer Configuration/Administrative Templates/System/User Profiles`
+  - **Paramètre :** Turn off the advertising ID
+  - **Configuration :** Enabled
+
+#### Gestion des mises à jour automatiques
+- **Configurer les mises à jour automatiques :**
+  - **Chemin :** `Computer Configuration/Administrative Templates/Windows Components/Windows Update`
+  - **Paramètre :** Configure Automatic Updates
+  - **Configuration :** Enabled, et mettre le nombre de minutes pour la configuration (ex : 15mn).
+
+#### Réseaux et Internet
+- **Désactiver Interdire la connexion aux réseaux Mobile Broadband en itinérance :**
+  - **Chemin :** `Computer Configuration/Administrative Templates/Network/Windows Connection Manager`
+  - **Paramètre :** Prohibit connection to roaming Mobile Broadband networks
+  - **Configuration :** Enabled
+
+- **Désactiver l'envoi de l'historique de saisie à Microsoft :**
+  - **Chemin :** `Computer Configuration/Administrative Templates/System/OS Policies`
+  - **Paramètre :** Allow Clipboard History
+  - **Configuration :** Disabled
+
+#### Autres paramètres de confidentialité
+- **Désactiver l'assistant de compatibilité des programmes :**
+  - **Chemin :** `Computer Configuration/Administrative Templates/Windows Components/Application Compatibility`
+  - **Paramètre :** Turn off Program Compatibility Assistant
+  - **Configuration :** Enabled
+
+### Étape 4 : Créer une nouvelle GPO 
+Pour créer une GPO :
+- Dans le volet de gauche, effectuez un clic droit sur le domaine ou l'unité d'organisation (OU) où vous souhaitez appliquer la GPO.
+- Sélectionnez l'option "Créer un objet de stratégie de groupe dans ce domaine".
+- Donnez un nom à la GPO, par exemple **Gestion télémétrie utilisateur**.
+
+#### GPO_U_ Télémétrie pour Utilisateur
+- **Chemin :** `User Configuration/Policies/Administrative Templates/Windows Component/Cloud Content`
+  - **Paramètre :** Do not use diagnostic data for tailored experience
+  - **Configuration :** Enabled
+
         
