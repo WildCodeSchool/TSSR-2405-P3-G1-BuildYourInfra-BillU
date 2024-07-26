@@ -12,7 +12,7 @@
     - Cliquez sur `Add` -> `Network Device`.
     - Ajoutez une interface réseau pour chaque sous-réseau en utilisant le modèle suivant :
         - **Bridge** : Choisissez le bridge approprié (pour notre cas, `G1`).
-        - **Model** : `INTEL E 100`
+        - **Model** : `INTEL E 1000`
     - Répétez cette étape pour chaque sous-réseau (vous aurez 9 interfaces en tout).
 
 ### Étape 2 : Configuration des interfaces sur VyOS
