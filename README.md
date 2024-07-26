@@ -184,13 +184,13 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 
  | Personne   | Rôle                   | Tâches                                                                                                           |
 |------------|------------------------|------------------------------------------------------------------------------------------------------------------|
-| Nicolas    | Scrum Master (SM)      | - Prise en main du pare-feu pfSense et configuration des règles de pare-feu (WAN et LAN)                          |
+| Nicolas    | Développeur      | - Prise en main du pare-feu pfSense et configuration des règles de pare-feu (WAN et LAN)                          |
 | Mohammed   | Développeur            | - Clone d'un template de routeur VyOS sur Proxmox avec documentation associée.                                    |
 |            |                        | - [Doc_Configuration_VYOS](S11/S11_Install.md)                                                                        |
 |            |                        | - Configuration du routeur VyOS sur l'infrastructure Proxmox en lien avec le PFsense.                             |
-| Joris      | Développeur            | - Création et configuration des GPO pour renforcer la sécurité et standardiser les paramètres sur les postes de travail Windows. |
-| Julie      | Développeuse           | - Configuration du routeur VyOS sur l'infrastructure Proxmox en lien avec le PFsense.                             |
-| Mina       | Product Owner (PO)     | - Gestion de la télémétrie sur les clients Windows 10/11, via script ou GPO.                                      |
+| Joris      | Scrum Master (SM)             | - Création et configuration des GPO pour renforcer la sécurité et standardiser les paramètres sur les postes de travail Windows. |
+| Julie      | Product Owner (PO)           | - Configuration du routeur VyOS sur l'infrastructure Proxmox en lien avec le PFsense.                             |
+| Mina       | Développeur      | - Gestion de la télémétrie sur les clients Windows 10/11, via script ou GPO.                                      |
 
    
 ## **Choix Techniques :**
