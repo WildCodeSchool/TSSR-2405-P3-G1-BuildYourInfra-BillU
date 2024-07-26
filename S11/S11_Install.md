@@ -138,7 +138,7 @@ exit`
     - Essayez de pinguer une adresse IP d'un autre sous réseau  `172.18.2.1` 
 
 ![PING](/Ressources/Images/ping_VYOS_PFS.png)
-
+---
 # GPO Gestion de la télémétrie 
 
 Les GPO Gestion de la télémétrie sont des paramètres de stratégie de groupe utilisés pour configurer et contrôler la collecte de données de diagnostic et de télémétrie dans les systèmes Windows au sein d'un réseau. Ils permettent aux administrateurs de gérer et de limiter les informations envoyées à Microsoft, assurant ainsi la conformité aux politiques de confidentialité de l'organisation.
