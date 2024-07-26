@@ -190,7 +190,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 |            |                        | - Configuration du routeur VyOS sur l'infrastructure Proxmox en lien avec le PFsense.                             |
 | Joris      | Scrum Master (SM)             | - Création et configuration des GPO pour renforcer la sécurité et standardiser les paramètres sur les postes de travail Windows. |
 | Julie      | Product Owner (PO)           | - Configuration du routeur VyOS sur l'infrastructure Proxmox en lien avec le PFsense.                             |
-| Mina       | Développeur      | - Gestion de la télémétrie sur les clients Windows 10/11, via script ou GPO.                                      |
+| Mina       | Développeur      | - Gestion de la télémétrie sur les clients Windows 10/11, via script ou GPO. [Doc_télémétrie](S11/S11_Install.md)                                       |
 
    
 ## **Choix Techniques :**
