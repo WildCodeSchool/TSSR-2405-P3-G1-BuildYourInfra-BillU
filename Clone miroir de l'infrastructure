@@ -1,0 +1,17 @@
+Paragon backup et recovery
+
+C'est un outil de sauvegarde et de restauration qui permet de créer des images de disques et de restaurer des systemes.
+On peut aussi l'utiliser pour cloner des infrastructures.
+
+Installation de Paragon backup et recovery
+
+Telecharger cet outil depuis le site officiel : https://www.paragon-software.com/free/br-free/#
+Il faut l'installer sur le systeme d'exploitation qu'on veut cloner.
+
+Creation d'une image de sauvegarde
+
+- Choisir l'option backup & recovery pour creer une sauvegarde. 
+- Selectionner entire computer pour creer une sauvegarde de tous les stockages locaux de l'ordinateur.
+- Puis il faut choisir l'emplacement où on souhaite stocker la sauvegarde : disque externe ou emplacement reseau.
+- On peut configurer des options suplementaires comme la compression, la presense de mots de passe ou non, l'execution de programmes ou de scripts avant ou apres la sauvegarde, le fractionnement de sauvegarde
+- Cliquer sur backup now
