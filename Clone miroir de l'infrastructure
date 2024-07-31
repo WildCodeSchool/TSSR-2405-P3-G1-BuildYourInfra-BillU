@@ -1,3 +1,13 @@
+Inventaire et planification
+
+Il faut identifier toutes les machines, services, configurations et données qui doivent etre clonés.
+
+Préparation de l'environnement 
+
+Il faut préparer l'infrastructure cible où les données seront restaurées.
+
+Clonage des disques sur windows
+
 Paragon backup et recovery
 
 C'est un outil de sauvegarde et de restauration qui permet de créer des images de disques et de restaurer des systemes.
@@ -15,3 +25,20 @@ Creation d'une image de sauvegarde
 - Puis il faut choisir l'emplacement où on souhaite stocker la sauvegarde : disque externe ou emplacement reseau.
 - On peut configurer des options suplementaires comme la compression, la presense de mots de passe ou non, l'execution de programmes ou de scripts avant ou apres la sauvegarde, le fractionnement de sauvegarde
 - Cliquer sur backup now
+
+Utilisation de la commande dd pour cloner des disques durs sur linux
+
+- dd if=<source> off=<cible>
+
+Dans le cas d’un disque, ce sera donc : /dev/sda, /dev/sdb
+
+- dd if=/dev/sda of =/dev/sdb
+
+On peut aussi creer un fichier iso d'un dvd-rom ou cd-rom
+
+dd if=/dev/cdrom of=~/image-cdrom.iso bs=2048 conv=notrunc
+
+Synchronisation de fichier avec rsync sur linux
+
+
+
