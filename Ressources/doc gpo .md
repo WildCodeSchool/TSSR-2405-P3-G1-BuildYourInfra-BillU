@@ -16,3 +16,4 @@ conection RDP | domaine | restriction du nombre de connection RDP |
 windows update |domaine | gestion de mise a jours windows quand elle peuve s'executer 
 télémitrie | domaine | recuparation des donné télémetrique windoows
 pare feu | domaine | bloque l'accés au pare feu 
+deploiement script déplacement | domaine | déplacee les ordinateurs dans l'OU correspondante
