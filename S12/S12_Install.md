@@ -151,7 +151,7 @@ Enfin, nous déterminerons la destination pour la sauvegarde et, conformément a
 
 ![Install et config Windows Server Backup.25.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.25.png).
 
-## 3 STOCKAGE AVANCÉ - Mettre en place du RAID 1 sur Windows Server 2022 en GUI
+## 3 - STOCKAGE AVANCÉ - Mettre en place du RAID 1 sur Windows Server 2022 en GUI
 
 ## Création d'un snapshot
 
