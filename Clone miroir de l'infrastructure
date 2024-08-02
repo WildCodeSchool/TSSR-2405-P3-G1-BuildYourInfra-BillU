@@ -1,44 +1,134 @@
-Inventaire et planification
+Clonage de l'infrastructure
 
-Il faut identifier toutes les machines, services, configurations et données qui doivent etre clonés.
+Utiliser bareos
 
-Préparation de l'environnement 
+Prerequis
 
-Il faut préparer l'infrastructure cible où les données seront restaurées.
+Ajouter le depot qui contient bareos ainsi que sa clé associé : 
+- nano /etc/apt/sources.list.d/bareos.list
 
-Clonage des disques sur windows
+Ajoutez le texte suivant dans le fichier puis le sauvegarder : 
+- deb http://download.bareos.org/bareos/release/latest/Debian_9.0/ /
 
-Paragon backup et recovery
+Télécharger la clé et l’ajouter, taper la commande suivante dans le terminal : 
+- wget -q http://download.bareos.org/bareos/release/latest/Debian_9.0/Release.key -O- | apt-key add --
 
-C'est un outil de sauvegarde et de restauration qui permet de créer des images de disques et de restaurer des systemes.
-On peut aussi l'utiliser pour cloner des infrastructures. Il est disponible que sur windows.
+Appliquez les changements avec la commande suivante :
+- apt-get update
 
-Installation de Paragon backup et recovery
+Installation de bareos
 
-Telecharger cet outil depuis le site officiel : https://www.paragon-software.com/free/br-free/#
-Il faut l'installer sur le systeme d'exploitation qu'on veut cloner.
+Installation de Bareos, du lien de base de données et de l’interface web :
+- apt-get install bareos bareos-database-mysql bareos-webui
 
-Creation d'une image de sauvegarde
+Durant l’installation, sélectionner « No » à la question : 
+Configure database for bareos-database-common with dbconfig-common
 
-- Choisir l'option backup & recovery pour creer une sauvegarde. 
-- Selectionner entire computer pour creer une sauvegarde de tous les stockages locaux de l'ordinateur.
-- Puis il faut choisir l'emplacement où on souhaite stocker la sauvegarde : disque externe ou emplacement reseau.
-- On peut configurer des options suplementaires comme la compression, la presense de mots de passe ou non, l'execution de programmes ou de scripts avant ou apres la sauvegarde, le fractionnement de sauvegarde
-- Cliquer sur backup now
+Installer le serveur de base de données MariaDB : 
+- apt-get install mariadb-server
 
-Utilisation de la commande dd pour cloner des disques durs sur linux
+Lancer les scripts pour paramétrer la base de données :
+- /usr/lib/bareos/scripts/create_bareos_database
+- /usr/lib/bareos/scripts/make_bareos_tables
+- /usr/lib/bareos/scripts/grant_bareos_privileges
 
-- dd if=<source> off=<cible>
+Lancez les commandes ci-dessous pour redémarrer/démarrer les services :
+- systemctl start bareos-dir
+- systemctl start bareos-fd
+- systemctl start bareos-sd
+- systemctl restart apache2
 
-Dans le cas d’un disque, ce sera donc : /dev/sda, /dev/sdb
+Configurer bareos
 
-- dd if=/dev/sda of =/dev/sdb
+Utilisation de l'interface web
 
-On peut aussi creer un fichier iso d'un dvd-rom ou cd-rom
+Taper la commande suivante pour accéder à la console par terminal :
+- bconsole
 
-dd if=/dev/cdrom of=~/image-cdrom.iso bs=2048 conv=notrunc
+Taper la commande ci-dessous pour ajouter un utilisateur :
+- configure add console name=admin password=admin profile=webui-admin
 
-Synchronisation de fichier avec rsync sur linux
+Access interface web
 
+Pour accéder à l’interface web, ouvrir un navigateur et taper l’adresse suivante :
+http://IP_SERVEUR_Bareos/bareos-webui
 
+La page de connexion s'affiche. Il faut utiliser le compte creer. Le tableau de bord s'affiche.
 
+Configuration de sauvegarde
+
+Aller sur l'interface web du serveur :
+http://IP_SERVEUR_Bareos/bareos-webui
+
+Une fois connecté, aller dans le premier menu puis cliquez sur « Jobs » puis sur « Lancer ». Dans le champ job, sélectionner « backup-bareos-fd », 
+compléter les autres champs en fonction de vos préférences et lancez le job.
+
+Restauration
+
+Dans le premier menu sélectionner « Restauration » et dans le champ « Client » sélectionner le serveur puis cocher les fichiers que vous souhaitez restaurer.
+
+Client linux
+
+Installation du FD sur le client Linux :
+- apt-get install bareos-client
+
+Ouvrir le fichier suivant :
+- nano /etc/bareos/bareos-fd.conf
+
+Dans la balise « Director », dans « Name » saisir le nom du serveur Bareos (director). 
+
+Retourner sur le serveur pour définir le job de sauvegarde pour le client Linux :
+- nano /etc/bareos/bareos-dir.d/job/backup-bareos-fd.conf
+
+Ajouter le texte suivant au fichier :
+Job {
+Name = "backup-linux-fd"
+Jobdefs = "Linux"
+Client = "client-linux-fd"
+}
+
+Éditer ensuite le fichier ci-dessous :
+- nano /etc/bareos/bareos-dir.d/client/bareos-fd.conf
+
+Ajouter les lignes suivantes à ce fichier :
+Client {  
+Name = client-linux-fd 
+Address = 192.168.76.21
+Password = "test"
+}
+
+Créer le job associé :
+- nano /etc/bareos/bareos-dir.d/jobdefs/Linux.conf
+
+Ajoutez les lignes suivantes au fichier :
+JobDefs {
+Name = "Linux"
+Type = Backup
+Level = Incremental
+Client = client-linux-fd
+FileSet = "SelfTest" # selftest fileset $
+Schedule = "WeeklyCycle"
+Storage = File
+Messages = Standard
+Pool = Incremental
+Priority = 10
+Write Bootstrap = "/var/lib/bareos/%c.bsr"
+Full Backup Pool = Full # write Full Backups into "Full" Poo$
+Differential Backup Pool = Differential # write Diff Backups into "Different$
+Incremental Backup Pool = Incremental # write Incr Backups into "Increment$
+}
+
+Redémarrer les services pour prendre en compte les modifications :
+- systemctl start bareos-dir 
+- systemctl start bareos-fd 
+- systemctl start bareos-sd
+
+Verifications
+
+Aller dans l’interface Web de Bareos, vérifier que le client apparaît bien dans la liste en cliquant sur « Clients » dans le menu en haut.
+Aller dans le menu « Jobs » puis sur « Lancer ». Dans le champ « Job », sélectionner le client correspondant à la machine Linux et le lancer.
+Aller dans le menu des jobs pour voir l’état.
+
+Restauration
+
+Pour la restauration, aller dans le menu « Restauration », sélectionner le client Linux et cocher le(s) fichier(s) a restaurer.
