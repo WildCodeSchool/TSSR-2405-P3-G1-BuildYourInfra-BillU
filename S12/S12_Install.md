@@ -108,7 +108,7 @@ Nous procéderons ensuite à l'ajout du rôle Windows Server Backup dans le Gest
 ![Install et config Windows Server Backup.6.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.6.png).
 
 ![Install et config Windows Server Backup.7.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.7.png).
- 
+
 ![Install et config Windows Server Backup.8.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.8.png).
 
 Une fois l'installation fini nous allons nous rendre sur le Computer Management pour initialiser le disque.
@@ -118,9 +118,9 @@ Une fois l'installation fini nous allons nous rendre sur le Computer Management 
 
 ![Install et config Windows Server Backup.11.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.11.png).
 
+Nous allons maintenant nous rendre sur le Windows Server Backup
 ![Install et config Windows Server Backup.12.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.12.png).
 
-Nous allons maintenant nous rendre sur le Windows Server Backup
 ![Install et config Windows Server Backup.13.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.13.png).
 
 ![Install et config Windows Server Backup.14.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.14.png).
@@ -131,7 +131,7 @@ Nous allons maintenant nous rendre sur le Windows Server Backup
 
 ![Install et config Windows Server Backup.17.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.17.png).
 
-On séléctionne Custom pour configurer manuellement la configuration la sauvegarde
+On sélectionne Custom pour configurer manuellement la configuration de la sauvegarde
 ![Install et config Windows Server Backup.18.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.18.png).
 
 Nous sélectionnerons ensuite les fichiers devant faire l'objet de la sauvegarde.
@@ -141,7 +141,7 @@ Il sera également nécessaire de définir une heure précise dans la journée p
 ![Install et config Windows Server Backup.20.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.20.png).
 
 Enfin, nous déterminerons la destination pour la sauvegarde et, conformément aux captures d'écran ci-dessous, le volume sera dûment configuré.
-![Install et config Windows Server Backup.21.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.21.png)
+![Install et config Windows Server Backup.21.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.21.png).
 
 ![Install et config Windows Server Backup.22.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.22.png).
 
@@ -150,7 +150,5 @@ Enfin, nous déterminerons la destination pour la sauvegarde et, conformément a
 ![Install et config Windows Server Backup.24.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.24.png).
 
 ![Install et config Windows Server Backup.25.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.25.png).
-
-
 
 
