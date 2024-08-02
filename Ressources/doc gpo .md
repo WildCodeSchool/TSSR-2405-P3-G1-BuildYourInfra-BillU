@@ -17,3 +17,4 @@ windows update |domaine | gestion de mise a jours windows quand elle peuve s'exe
 télémitrie | domaine | recuparation des donné télémetrique windoows
 pare feu | domaine | bloque l'accés au pare feu 
 deploiement script déplacement | domaine | déplacee les ordinateurs dans l'OU correspondante
+mappage dossier partager | domaine | permet que tous les utilisateur de voir les dossier qui leur sont partager sous forme de lecteur avec un raccourcie bureau 
