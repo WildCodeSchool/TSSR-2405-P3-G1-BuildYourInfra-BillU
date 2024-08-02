@@ -212,27 +212,85 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
     - Mettre en place une DMZ pour renforcer notre sécurité réseau
 
   ---
-#### Sprint 4 : 
+# Sprint 4 : Mise en Place des Dossiers Partagés, Sécurité et Sauvegarde sur AD, et Automatisation des Tâches AD
 
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
+## Objectifs du sprint
 
-    -
+1. **Dossiers Partagés :**
+    - Mettre en place des dossiers réseaux pour les utilisateurs
+    - Stockage des données sur un volume spécifique de l'AD
+    - Sécurité de partage des dossiers par groupe AD
+    - Mappage des lecteurs sur les clients par GPO 
+    - Chaque utilisateur a accès à :
+        - Un **dossier individuel**, avec une lettre de mappage réseau **I**, accessible uniquement par cet utilisateur
+        - Un **dossier de service**, avec une lettre de mappage réseau **M**, accessible par tous les utilisateurs d'un même service.
+        - Un **dossier de département**, avec une lettre de mappage **N**, accessible par tous les utilisateurs d'un même département.
+
+2. **Stockage Avancé :**
+    - Mettre en place du RAID 1 sur le volume système des serveurs 
+
+3. **Sauvegarde :**
+    - Mettre en place une sauvegarde du volume qui contient les dossiers partagés des utilisateurs
+    - Les sauvegardes seront placées sur un volume spécifique
+    - Il y a au minimum 1 sauvegarde par semaine
+
+4. **Mot de Passe Administrateur Local :**
+    - Mise en place de LAPS
+    - Console de gestion sur un AD en GUI
+    - Installation sur les postes clients par GPO 
+
+5. **Déplacement des Machines dans l'AD :**
+    - Automatisation du placement dans la bonne OU
+    - Suivant le nom d'une machine et/ou la valeur d'un attribut AD
+    - Automatisation par script exécuté par une tâche planifiée sur le serveur
+
+6. **Restriction d'Utilisation des Machines :**
+    - Bloquer la connexion pour les utilisateurs non-admin (domaine et local)
+    - Connexion autorisée de 7h30 à 20h, du lundi au samedi
+
+7. **Objectif Personnalisé :**
+    - Mise en place d'un mécanisme pour récupérer rapidement en cas de défaillance :
+        - Clone miroir
+        - Script de restauration complet ou partiel d'OS
+        - Script de restauration de configuration
+
+## Récapitulatifs des Tâches :
+  
+| Personne   | Rôle                   | Tâches                                                                                                           |
+|------------|------------------------|------------------------------------------------------------------------------------------------------------------|
+| Nicolas    | Développeur            | - Automatisation du placement des machines dans la bonne OU (Objectif 5)                                         |
+| Mohammed   | Développeur            | - Mise en place de LAPS et gestion par GPO  (Objectif 4)                                                |
+| Joris      | Scrum Master (SM)      | - Mise en place des dossiers partagés et gestion des accès (Objectif 1)                                          |
+|            |                        | - Restriction horaire d'utilisation des machines (Objectif 6)                                                    |
+| Mina       | Développeur            | - Mettre en place du RAID 1 sur le volume système des serveurs (Objectif 2)                                      |
+|            |                        | - Mise en place d'une sauvegarde du volume des dossiers partagés (Objectif 3)                                    |
+| Julie      | Product Owner (PO)     | - Mise en place d'un mécanisme de récupération rapide en cas de défaillance (Objectif 7)                         |
+
+## **Choix Techniques :**
+  
+- Utilisation de GPO et scripts pour la gestion des dossiers partagés et des accès
+- Implémentation de RAID 1 pour améliorer la fiabilité des serveurs
+- Utilisation de LAPS pour sécuriser les mots de passe administrateurs locaux
+- Automatisation des tâches AD pour simplifier la gestion et améliorer l'efficacité
+- Mise en place de mécanismes de sauvegarde et de récupération rapide pour assurer la continuité des services
+
+## **Difficultés Rencontrées :**
+    
+    - Problèmes de configuration des partages réseau et des permissions
+    - Difficultés dans la mise en place et la gestion de LAPS
+    - Complexité de l'automatisation des tâches AD et du placement des machines dans les bonnes OU
+      
+## **Solutions Trouvées :**
+    
+    - Utilisation d'outils de diagnostic et de gestion des partages pour résoudre les problèmes de permissions
+    - Formation et documentation sur l'utilisation de LAPS et les bonnes pratiques de sécurité
+    - Scripts optimisés et planifications de tâches automatisées pour gérer le placement des machines dans l'AD
+      
+## **Améliorations Possibles :**
+
+    - Automatisation accrue des tâches de gestion et de maintenance des serveurs et des postes clients
+    - Surveillance continue et alertes en temps réel pour anticiper les problèmes de sécurité et de performances
+    - Formation continue des équipes sur les nouvelles technologies et les bonnes pratiques de gestion réseau et de sécurité
 
 ---
 #### Sprint 5 : 
