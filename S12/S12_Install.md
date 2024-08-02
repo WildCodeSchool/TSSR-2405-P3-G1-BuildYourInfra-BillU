@@ -120,6 +120,7 @@ Une fois l'installation fini nous allons nous rendre sur le Computer Management 
 
 ![![Install et config Windows Server Backup.12.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.12.png).
 
+Nous allons maintenant nous rendre sur le Windows Server Backup
 ![![Install et config Windows Server Backup.13.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.13.png).
 
 ![![Install et config Windows Server Backup.14.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.14.png).
