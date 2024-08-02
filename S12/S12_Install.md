@@ -99,7 +99,6 @@ Nous procéderons ensuite à l'ajout du rôle Windows Server Backup dans le Gest
 
 ![Install et config Windows Server Backup.2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.2.png).
 
-Nous pouvons désormais constater que le volume est effectivement au format attendu.
 ![Install et config Windows Server Backup.3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.3.png).
 
 ![Install et config Windows Server Backup.4.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.4.png).
