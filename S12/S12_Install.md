@@ -79,9 +79,18 @@ Ces informations sont  visibles dans l'onglet "**LAPS**" de l'objet ordinateur e
 
 ![LAPS](/Ressources/Images/laps_mdpclient.png)
 
+
+
+
 9. **Tester le mdp généré en se connectant avec l'administrateur local du PC client**:
 
 ![LAPS](/Ressources/Images/Co_client.png)  
 
 ---
+2 - SAUVEGARDE  
+
+![Ajout du disque.1.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Ajout%20du%20disque.1.png).
+
+
+
 
