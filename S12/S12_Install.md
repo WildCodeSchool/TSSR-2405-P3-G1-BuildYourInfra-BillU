@@ -109,9 +109,9 @@ Nous procéderons ensuite à l'ajout du rôle Windows Server Backup dans le Gest
 
 ![Install et config Windows Server Backup.7.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.7.png).
  
-
 ![Install et config Windows Server Backup.8.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.8.png).
 
+Une fois l'installation fini nous allons nous rendre sur le Computer Management pour initialiser le disque.
 ![Install et config Windows Server Backup.9.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.9.png).
 
 ![Install et config Windows Server Backup.10.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.10.png).
