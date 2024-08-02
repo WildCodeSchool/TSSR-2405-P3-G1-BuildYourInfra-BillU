@@ -131,16 +131,15 @@ Nous allons maintenant nous rendre sur le Windows Server Backup
 
 ![Install et config Windows Server Backup.17.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.17.png).
 
-On sélectionne Custom pour configurer manuellement la configuration de la sauvegarde
+Nous sélectionnerons ensuite les fichiers devant faire l'objet de la sauvegarde.
 ![Install et config Windows Server Backup.18.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.18.png).
 
-Nous sélectionnerons ensuite les fichiers devant faire l'objet de la sauvegarde.
+Il sera également nécessaire de définir une heure précise dans la journée pour effectuer la sauvegarde.
 ![Install et config Windows Server Backup.19.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.19.png).
 
-Il sera également nécessaire de définir une heure précise dans la journée pour effectuer la sauvegarde.
+Enfin, nous déterminerons la destination pour la sauvegarde et, conformément aux captures d'écran ci-dessous, le volume sera dûment configuré.
 ![Install et config Windows Server Backup.20.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.20.png).
 
-Enfin, nous déterminerons la destination pour la sauvegarde et, conformément aux captures d'écran ci-dessous, le volume sera dûment configuré.
 ![Install et config Windows Server Backup.21.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.21.png).
 
 ![Install et config Windows Server Backup.22.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.22.png).
