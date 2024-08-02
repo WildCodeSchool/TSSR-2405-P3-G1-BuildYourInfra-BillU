@@ -157,11 +157,11 @@ Enfin, nous déterminerons la destination pour la sauvegarde et, conformément a
 
 Avant de commencer, rendez-vous dans l'onglet Snapshots de votre serveur sur Proxmox, puis cliquez sur "Take Snapshot".
 
-![Créer un snapshot .1.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.1.png)
+![Créer un snapshot .1.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.1.png).
 
-![Créer un snapshot .2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.2.png)
+![Créer un snapshot .2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.2.png).
 
-![Créer un snapshot .3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.3.png)
+![Créer un snapshot .3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.3.png).
 
 ## Ajout d'un disque sur Proxmox
 
