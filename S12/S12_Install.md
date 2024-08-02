@@ -151,4 +151,57 @@ Enfin, nous déterminerons la destination pour la sauvegarde et, conformément a
 
 ![Install et config Windows Server Backup.25.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.25.png).
 
+# STOCKAGE AVANCÉ - Mettre en place du RAID 1 sur Windows Server 2022 en GUI
+
+## Création d'un snapshot
+
+Avant de commencer, rendez-vous dans l'onglet Snapshots de votre serveur sur Proxmox, puis cliquez sur "Take Snapshot".
+
+![Créer un snapshot .1.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.1.png)
+
+![Créer un snapshot .2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.2.png)
+
+![Créer un snapshot .3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20snapshot%20.3.png)
+
+## Ajout d'un disque sur Proxmox
+
+Puis cliquez sur "Add".
+
+![Créer un RAID.4.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.4.png)
+
+Comme on peut le constater, le disque dur a été correctement créé.
+
+![Créer un RAID.5.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.5.png)
+
+## Configuration du RAID
+
+Faire un clic-droit sur le bouton Windows puis "Disk Management".
+![Créer un RAID.6.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.6.png)
+
+Lorsque vous ouvrez, un message vous informe que vous devez démarrer le nouveau disque pour y accéder. Cliquez sur le bouton "OK".
+![Créer un RAID.7.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.7.png)
+
+Faites clic-droit sur "Disk 0" puis "Convert to Dynamic Disk".
+![Créer un RAID.8.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.8.png)
+
+Sélectionnez "Disk 0" et "Disk 1" puis cliquez sur "OK".
+![Créer un RAID.9.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.9.png)
+
+Cliquez sur "Convert".
+![Créer un RAID.10.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.10.png)
+
+Un message vous informe que vous ne pourrez pas démarrer un autre système d'exploitation à l'exception de celui déjà installé après la conversion. Cliquez sur "Oui".
+![Créer un RAID.11.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.11.png)
+
+Faites clic-droit sur votre partition Windows C: puis "Add Mirror".
+![Créer un RAID.12.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.12.png)
+
+Choisissez le disque 1 puis cliquez sur "Ajouter un miroir".
+![Créer un RAID.13.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.13.png)
+
+Les volumes vont être placés en statut de resynchronisation. Cette étape pourrait nécessiter un certain temps. Le pourcentage de progression s'affichera dans la partition.
+![Créer un RAID.14.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.14.png)
+
+Une fois la synchronisation achevée, les volumes retrouvent un statut de "Santé". Votre configuration RAID est désormais pleinement opérationnelle.
+![Créer un RAID.15.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.15.png)
 
