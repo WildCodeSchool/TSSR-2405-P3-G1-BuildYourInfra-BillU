@@ -201,5 +201,6 @@ Les volumes vont être placés en statut de resynchronisation. Cette étape pour
 ![Créer un RAID.14.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.14.png)
 
 Une fois la synchronisation achevée, les volumes retrouvent un statut de "Santé". Votre configuration RAID est désormais pleinement opérationnelle.
+
 ![Créer un RAID.15.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID.15.png)
 
