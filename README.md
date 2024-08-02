@@ -259,11 +259,11 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Personne   | Rôle                   | Tâches                                                                                                           |
 |------------|------------------------|------------------------------------------------------------------------------------------------------------------|
 | Nicolas    | Développeur            | - Automatisation du placement des machines dans la bonne OU (Objectif 5)                                         |
-| Mohammed   | Développeur            | - Mise en place de LAPS et gestion par GPO  (Objectif 4)                                                |
+| Mohammed   | Développeur            | - Mise en place de LAPS et gestion par GPO  (Objectif 4)   <br> [Doc](S12/12_Install.md)                                             |
 | Joris      | Scrum Master (SM)      | - Mise en place des dossiers partagés et gestion des accès (Objectif 1)                                          |
 |            |                        | - Restriction horaire d'utilisation des machines (Objectif 6)                                                    |
-| Mina       | Développeur            | - Mettre en place du RAID 1 sur le volume système des serveurs (Objectif 2)                                      |
-|            |                        | - Mise en place d'une sauvegarde du volume des dossiers partagés (Objectif 3)                                    |
+| Mina       | Développeur            | - Mettre en place du RAID 1 sur le volume système des serveurs (Objectif 2) <br> [Doc](S12/12_Install.md)                                      |
+|            |                        | - Mise en place d'une sauvegarde du volume des dossiers partagés (Objectif 3)  <br> [Doc](S12/12_Install.md)                                   |
 | Julie      | Product Owner (PO)     | - Mise en place d'un mécanisme de récupération rapide en cas de défaillance (Objectif 7)                         |
 
 ## **Choix Techniques :**
