@@ -87,18 +87,19 @@ Ces informations sont  visibles dans l'onglet "**LAPS**" de l'objet ordinateur e
 ![LAPS](/Ressources/Images/Co_client.png)  
 
 ---
-2 - SAUVEGARDE  
+## 2 - SAUVEGARDE
 
-Sauvegarde sur un volume spécifique  
+### Sauvegarde sur un volume spécifique
+
 Nous avons intégralement ajouté un volume spécifique de 10 Go afin de garantir la prise en charge adéquate des sauvegardes.
 ![Ajout du disque.1.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Ajout%20du%20disque.1.png).
 
-Nous procéderons ensuite à l'ajout du rôle Windows Server Backup dans le Gestionnaire de Serveur. 
+Nous procéderons ensuite à l'ajout du rôle Windows Server Backup dans le Gestionnaire de Serveur.
 ![Install et config Windows Server Backup.1.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20%20Windows%20Server%20Backup.1.png).
 
 ![Install et config Windows Server Backup.2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.2.png).
 
-Une fois l'installation achevée, nous nous dirigerons vers la Gestion de l'Ordinateur pour initialiser le disque.  
+Nous pouvons désormais constater que le volume est effectivement au format attendu.
 ![Install et config Windows Server Backup.3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.3.png).
 
 ![Install et config Windows Server Backup.4.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.4.png).
@@ -109,10 +110,9 @@ Une fois l'installation achevée, nous nous dirigerons vers la Gestion de l'Ordi
 
 ![Install et config Windows Server Backup.7.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.7.png).
  
-Nous pouvons désormais constater que le volume est effectivement au format attendu. 
+
 ![Install et config Windows Server Backup.8.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.8.png).
 
-Nous allons maintenant accéder à Windows Server Backup.
 ![Install et config Windows Server Backup.9.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20%20Windows%20Server%20Backup.9.png).
 
 ![Install et config Windows Server Backup.10.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.10.png).
@@ -129,21 +129,27 @@ Nous allons maintenant accéder à Windows Server Backup.
 
 ![Install et config Windows Server Backup.16.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.16.png).
 
-Il sera également nécessaire de définir une heure précise dans la journée pour effectuer la sauvegarde.
 ![Install et config Windows Server Backup.17.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.17.png).
 
-Enfin, nous déterminerons la destination pour la sauvegarde et, conformément aux captures d'écran ci-dessous, le volume sera dûment configuré.
+On séléctionne Custom pour configurer manuellement la configuration la sauvegarde
 ![Install et config Windows Server Backup.18.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.18.png).
 
+Nous sélectionnerons ensuite les fichiers devant faire l'objet de la sauvegarde.
 ![Install et config Windows Server Backup.19.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.19.png).
 
+Il sera également nécessaire de définir une heure précise dans la journée pour effectuer la sauvegarde.
 ![Install et config Windows Server Backup.20.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.20.png).
 
+Enfin, nous déterminerons la destination pour la sauvegarde et, conformément aux captures d'écran ci-dessous, le volume sera dûment configuré.
 ![Install et config Windows Server Backup.21.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.21.png)
 
 ![Install et config Windows Server Backup.22.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.22.png).
 
+![Install et config Windows Server Backup.23.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.23.png).
 
+![Install et config Windows Server Backup.24.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.24.png).
+
+![Install et config Windows Server Backup.25.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Install%20et%20config%20Windows%20Server%20Backup.25.png).
 
 
 
