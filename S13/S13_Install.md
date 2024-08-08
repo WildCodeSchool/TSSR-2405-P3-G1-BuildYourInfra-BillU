@@ -17,7 +17,7 @@ Comme vous le voyez sur cette image, nous avons bien les deux disques.
 ### Partitionner les disques
 
 Comme vous le voyez, la fenêtre sera comme cette image :  
-![Créer un RAID 1 Debian.3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID%201%20Debian.3.png).
+![Créer un RAID 1 Debian.3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID%201%20Debian.3.png)
 
 Appuyez ensuite sur "partitionnement assisté".
 
@@ -49,4 +49,36 @@ Nous allons mettre cette partition en swap :
 ![Créer un RAID 1 Debian.65.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID%201%20Debian.65.png)  
 ![Créer un RAID 1 Debian.66.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID%201%20Debian.66.png)  
 ![Créer un RAID 1 Debian.67.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID%201%20Debian.67.png)
+
+# Mettre en place du RAID 1 sur Windows Server Core
+
+## Étapes
+
+### 1. Lancer Diskpart
+
+diskpart
+
+2. Lister les disques
+list disk
+
+3. Sélectionner le disque 0 et le convertir en dynamique
+select disk 0
+convert dynamic
+
+4. Idem pour le nouveau disque ajouté
+select disk 1
+convert dynamic
+
+5. Lister les volumes
+list volume
+![Créer un RAID1 sur Windows Core.1.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID1%20sur%20Windows%20Core.1.png).
+6. Sélectionner le volume C et ajouter le deuxième disque
+select volume V
+add disk=1
+
+7. Vérification
+list disk
+list volume
+![Créer un RAID1 sur Windows Core.2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID1%20sur%20Windows%20Core.2.png).
+
 
