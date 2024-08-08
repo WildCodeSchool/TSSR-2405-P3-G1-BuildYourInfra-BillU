@@ -17,7 +17,7 @@ Comme vous le voyez sur cette image, nous avons bien les deux disques.
 ### Partitionner les disques
 
 Comme vous le voyez, la fenêtre sera comme cette image :  
-![Créer un RAID 1 Debian.3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID%201%20Debian.3.png)
+![Créer un RAID 1 Debian.3.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID%201%20Debian.3.png).
 
 Appuyez ensuite sur "partitionnement assisté".
 
