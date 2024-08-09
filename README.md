@@ -329,7 +329,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Mohammed   | Développeur            | - Mise en place de la supervision de l'infrastructure avec Zabbix (Objectif 2)<br> [Doc_Partie2](S13/S13_Install.md)                                  |
 | Julie      | Développeur      | - Intégration des nouveaux utilisateurs dans l'AD et modification des informations existantes (Objectif 3)       |
 | Joris      | Développeur       | - Suppression des utilisateurs ne faisant plus partie des effectifs dans l'AD (Objectif 3)                       |
-| Mina       | Product Owner (PO)            | - Suppression du RAID sur le Proxmox pour libérer de la place (Objectif personnalisé)                            |
+| Mina       | Product Owner (PO)            | - Suppression du RAID sur le Proxmox pour libérer de la place (Objectif personnalisé) <br> [Doc_Partie1](S13/S13_Install.md)                            |
 
 ## **Choix Techniques :**
   
