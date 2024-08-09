@@ -1,4 +1,4 @@
-# Mise en place du RAID 1 lors de l'installation de Debian
+# Partie 1 : Mise en place du RAID 1 lors de l'installation de Debian
 
 L'installation de RAID 1 lors de l'installation de Debian est une étape essentielle pour assurer la redondance des données et la tolérance aux pannes. RAID 1 fonctionne en créant une copie exacte (ou miroir) de toutes les données sur un autre disque. Voici un guide étape par étape pour configurer RAID 1 lors de l'installation de Debian.
 
@@ -80,5 +80,190 @@ add disk=1
 list disk
 list volume
 ![Créer un RAID1 sur Windows Core.2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Créer%20un%20RAID1%20sur%20Windows%20Core.2.png).
+
+---
+
+# Partie 2 : Installation et Configuration de Zabbix 6.4
+
+```
+Cette procédure explique comment installer Zabbix, où le serveur central, incluant une base de données et une interface web, collecte et analyse les données transmises par les agents installés sur chaque machine cliente, assurant ainsi une supervision complète de l'infrastructure IT.
+```
+
+#### 1. Installation du Serveur Zabbix sur Debian 12 "G1-SRV-ZABBIX"
+
+**Étape 1.1 : Préparation du serveur**
+
+- IP du serveur : `172.18.1.22`
+    
+- Assurez-vous que votre serveur est à jour :
+
+```bash
+su apt update && su apt upgrade -y
+```
+
+**Étape 1.2 : Installation du serveur Zabbix et de la base de données**
+
+- Ajoutez le dépôt Zabbix :
+
+```bash
+wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1%2Bdebian12_all.deb
+su dpkg -i zabbix-release_6.4-1+debian12_all.deb
+su apt update
+```
+
++ Installez Zabbix Server, l'interface Web et l'agent :
+
+```bash
+su apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent mariadb-server
+```
+
+**Étape 1.3 : Configuration de la base de données**
+
+- Configurez MySQL/MariaDB pour Zabbix :
+
+```bash
+su mysql_secure_installation
+su mysql -u root -p
+```
+
++ Dans le terminal MySQL, exécutez :
+
+```bash
+CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+CREATE USER 'zabbix'@'localhost' IDENTIFIED BY 'secure_password';
+GRANT ALL PRIVILEGES ON zabbix.* TO 'zabbix'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
++ Importez le schéma de la base de données :
+
+```bash
+sudo zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
+```
+
+**Étape 1.4 : Configuration du serveur Zabbix**
+
+- Modifiez le fichier de configuration `/etc/zabbix/zabbix_server.conf` :
+
+```bash
+su nano /etc/zabbix/zabbix_server.conf
+```
+
++ Paramètres :
+
+```makefile
+DBHost=localhost
+DBName=zabbix
+DBUser=zabbix
+DBPassword=secure_password
+```
+
+**Étape 1.5 : Démarrer les services**
+
+- Redémarrez les services Zabbix et Apache :
+
+```bash
+sudo systemctl restart zabbix-server zabbix-agent apache2
+sudo systemctl enable zabbix-server zabbix-agent apache2
+```
+
+**Étape 1.6 : Configuration de l'interface Web**
+
+- Accédez à l'interface Web Zabbix via `http://172.18.1.22/zabbix` et suivez l'assistant pour configurer l'accès à la base de données.
+
+  ![web_Install](/Ressources/Images/zabbix_interface_install.png)
+
+---
+### 2. Installation des Agents Zabbix
+
+#### 2.1. Installation de l'agent Zabbix sur Debian 12 (SRV-GLPI)
+
+- IP de la machine cliente : `172.18.1.60`
+    
+- Installez l'agent Zabbix :
+
+```bash
+su apt update 
+su apt install -y zabbix-agent
+```
+    
+- Configurez l'agent en éditant `/etc/zabbix/zabbix_agentd.conf` :
+    
+```bash
+su nano /etc/zabbix/zabbix_agentd.conf
+```
+    
+- Paramètres :
+    
+```makefile
+Server=172.18.1.22 (IP du serveur zabbix)
+ServerActive=172.18.1.22
+Hostname=Debian_Client_172.18.1.60
+```
+    
+- Démarrez et activez l'agent :
+    
+```bash
+su systemctl restart zabbix-agent
+su systemctl enable zabbix-agent
+```
+    
+#### 2.2. Installation de l'agent Zabbix sur Windows
+
+- **Serveur Windows 2022 (AD-DS-DNS-DHCP) :** `172.18.1.250`
+    
+    - Téléchargez le fichier MSI de l'agent Zabbix depuis le site officiel et suivez le wizard pour l'installation.
+    - Pendant le wizard, configurez :
+        - **Server** : `172.18.1.22` (IP du serveur Zabbix)
+        - **Hostname** : `WINSERV1`
+
+![MSIWSRV](/Ressources/Images/zabbix_agent_Windows.png)
+
+- **Windows Core Backup :** `172.18.1.251`
+    
+- **Windows Core 2 :** `172.18.1.21`
+    
+    - Pour ces deux machines, j'ai utiliser  un partage réseau pour le fichier MSI et un script `Install_zabbix_agent.bat`.
+        
+    - Contenu du script `Install_agent.bat` :
+		
+```
+@echo off
+msiexec /i "I:\Deploiement zabbix\zabbix_agent-6.4.17-windows-amd64-openssl.msi" /quiet /qn /norestart HOSTNAME=%COMPUTERNAME% SERVER=172.18.1.22 LISTENPORT=10050
+```
+
+![WCoreInstallZabbix](/Ressources/Images/deploiement_wincore2.png)
+
+--- 
+
+### 3. Configuration et Supervision via l'Interface Web
+
+#### Étape 3.1 : Ajouter les hôtes
+
+- Connectez-vous à l'interface Web Zabbix à l'adresse `http://172.18.1.22/zabbix`.
+    
+- Allez dans **Collecte de données > Hosts** et cliquez sur **Create host** pour chaque machine :
+    
+    - **Exemple pour un client Linux** :
+        
+        - **Hostname** : `Debian_Client_172.18.1.60`
+        - **Groups** : `Linux Servers`
+        - **Interfaces** : `172.18.1.60` (cliquez sur ajouter si l'interface n'existe pas)
+        - **Templates** : `Template OS Linux` (Bien choisir la template en fonction de l'OS)
+
+![config](/Ressources/Images/zabbix_création_hote.png)  
+
+#### Étape 3.2 : Configurer les éléments et déclencheurs
+
+- Pour chaque hôte, allez dans l'onglet **Items** pour vérifier ou ajouter les métriques à surveiller (CPU, RAM, etc.).
+- Configurez des **Triggers** pour définir des alertes spécifiques (ex : alerte lorsque l'utilisation CPU dépasse 90%).
+
+#### Étape 3.3 : Créer des tableaux de bord et des graphiques
+
+- Allez dans **Monitoring > Dashboard** et personnalisez les tableaux de bord pour suivre l'état des différentes machines.
+- Ajoutez des widgets pour visualiser les performances et identifier rapidement les problèmes sur les hôtes surveillés.
+
+![tdb](/Ressources/Images/tdb_zabbix.png)
 
 
