@@ -293,27 +293,66 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
     - Formation continue des équipes sur les nouvelles technologies et les bonnes pratiques de gestion réseau et de sécurité
 
 ---
-#### Sprint 5 : 
+# Sprint 5 : Journalisation des Scripts PowerShell, Supervision de l'Infrastructure avec Zabbix, Synchronisation des Utilisateurs AD
 
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
+## Objectifs du sprint
 
-    -
+1. **JOURNALISATION :**
+    - Mettre en place une journalisation des scripts PowerShell
+    - Modifier les scripts PowerShell utilisés (actuels et à venir)
+    - Utiliser un répertoire spécifique pour les logs 
+    - Un seul log par script
+    - Les logs seront construits pour pouvoir être lus par **l'Observateur d’événements Windows**
+
+2. **SUPERVISION :**
+    - Mise en place d'une supervision de l'infrastructure réseau avec **ZABBIX**
+    - Installation sur une VM dédié
+    - Supervision des éléments de l'infrastructure (actuels et à venir)
+    - Mise en place de tableaux de bord
+
+3. **AD - Synchronisation des Utilisateurs :**
+    - Intégration des nouveaux utilisateurs dans l'AD
+    - Modification de certaines informations
+    - Suppression des utilisateurs ne faisant plus partie des effectifs
+    - Fourniture et traitement du fichier `S14_BillU.xlsx` :
+        - Le directeur financier Yacine Hamad quitte la société, remplacé par Jean Leclerc. Prendre en compte la gestion des subalternes.
+        - Le département "Service Juridique" change de nom pour devenir "Département Juridique".
+        - Fauve Hôlth, ancienne responsable du département, quitte la société, remplacée par Jacqueline André. Prendre en compte la gestion des subalternes.
+        - Plusieurs collaborateurs ont quitté la société à la fin du mois dernier. Traiter leurs comptes AD ainsi que leurs données associées.
+        - Loic Blanc rejoint la société sur une création de poste : "Responsable marques".
+
+## Récapitulatifs des Tâches :
+  
+| Personne   | Rôle                   | Tâches                                                                                                           |
+|------------|------------------------|------------------------------------------------------------------------------------------------------------------|
+| Nicolas    | Scrum master (SM)           | - Mise en place de la journalisation des scripts PowerShell (Objectif 1)                                         |
+| Mohammed   | Développeur            | - Mise en place de la supervision de l'infrastructure avec Zabbix (Objectif 2)<br> [Doc_Partie2](S13/S13_Install.md)                                  |
+| Julie      | Développeur      | - Intégration des nouveaux utilisateurs dans l'AD et modification des informations existantes (Objectif 3)       |
+| Joris      | Développeur       | - Suppression des utilisateurs ne faisant plus partie des effectifs dans l'AD (Objectif 3)                       |
+| Mina       | Product Owner (PO)            | - Suppression du RAID sur le Proxmox pour libérer de la place (Objectif personnalisé)                            |
+
+## **Choix Techniques :**
+  
+- Utilisation de PowerShell pour la journalisation centralisée des scripts
+- Mise en place de Zabbix pour la supervision en temps réel de l'infrastructure
+- Synchronisation des utilisateurs dans l'AD en tenant compte des modifications et des départs
+- Libération d'espace sur Proxmox en supprimant les configurations RAID inutilisées
+
+## **Difficultés Rencontrées :**
+    
+    - Configuration complexe de Zabbix pour la supervision des éléments spécifiques de l'infrastructure
+    - Difficultés à synchroniser correctement les données utilisateurs dans l'AD, en particulier avec les remplacements de personnel
+
+## **Solutions Trouvées :**
+    
+    - Référencement aux meilleures pratiques et documentation pour la configuration de Zabbix
+    - Scripts automatisés pour synchroniser et traiter les modifications de comptes AD
+
+## **Améliorations Possibles :**
+
+    - Optimisation des scripts de journalisation pour inclure plus d'informations et une meilleure traçabilité
+    - Surveillance continue de l'infrastructure pour anticiper les problèmes avec Zabbix
+    - Mise en place d'un processus de gestion des utilisateurs plus automatisé pour les futurs remplacements et ajouts dans l'AD
 
   ---
 #### Sprint 6 : 
