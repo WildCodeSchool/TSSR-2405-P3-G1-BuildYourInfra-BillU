@@ -37,7 +37,7 @@ docker run hello-world
 apt install docker-compose
 ```
 
-## **Configuration de PassBolt avec Docker**
+## **Installation de PassBolt avec Docker**
 
 ```
 # Créer un répertoire pour Passbolt
@@ -77,13 +77,51 @@ services:
     volumes:
       - ./gpg:/etc/passbolt/gpg
       - ./jwt:/etc/passbolt/jwt
+
+# Attention de bien indiquer des ports qui ne sont pas déjà utilisés
     ports:
-      - 80:80
-      - 443:443
+      - 8080:80
+      - 8443:443
+```
+Il faut par la suite configurer le serveur Apache2 pour rediriger le trafic vers le conteneur.
+
+On active les modules nécessaires (SSL n'est ici pas utile car nous n'avons pas de certificat mais c'est une amélioration à apporter):
+``` a2enmod proxy prox_http ssl```
+Puis on crée un nouveau fichier de configuration pour le site passbolt :
+```nano /etc/apache2/sites-available/passbolt.conf```
+
+On y ajoute le contenu suivant :
+```
+<VirtualHost *:80>
+    ServerName BillU.Paris
+# Décommenter la ligne suivante si SSL
+#    Redirect permanent / https://BillU.Paris/
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerName BillU.Paris
+    
+    ProxyPreserveHost On
+    ProxyPass / http://localhost:8080/
+    ProxyPassReverse / http://localhost:8080/
+
+    ErrorLog ${APACHE_LOG_DIR}/passbolt_error.log
+    CustomLog ${APACHE_LOG_DIR}/passbolt_access.log combined
+</VirtualHost>
 ```
 
-On peut ensuite lancer Passbolt via Docker
-```docker-compose up -d```
+On active le site et on redémarre Apache et docker-compose:
+```
+a2ensite passbolt.conf
+systemctl restart apache2
+docker-compose down
+docker-compose up -d
+```
+
+Il faut maintenant initialiser Passbolt 
+```
+docker-compose exec passbolt su -m -c "/usr/share/php/passbolt/bin/cake passbolt install --admin-username votreemail@domaine.com --admin-password VotreMotDePasse" -s /bin/sh www-data
+```
 
 Une fois le service lancé, on configure le serveur web pour rediriger le trafic vers le conteneur Passbolt.
 
