@@ -355,27 +355,71 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
     - Mise en place d'un processus de gestion des utilisateurs plus automatisé pour les futurs remplacements et ajouts dans l'AD
 
   ---
-#### Sprint 6 : 
+# Sprint 6 : Gestion de projet avec RedMine, Installation d'un Serveur de Messagerie avec iRedMail, Gestion des Mots de Passe avec PassBolt, Configuration de la DMZ
 
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
+**Objectifs du sprint**
 
-    -
+**Gestion de projet / suivi de tâches avec RedMine** :
+
+- Installation et configuration de RedMine pour la gestion de projet
+- Utilisation de RedMine pour le suivi des tâches et des sprints
+- Formation de l'équipe à l'utilisation de RedMine pour les mises à jour et suivis
+
+**Installation d’un serveur de messagerie avec iRedMail** :
+
+- Mise en place d'un serveur de messagerie autonome avec iRedMail
+- Création des boîtes mail pour les utilisateurs actuels et nouveaux
+- Configuration des protocoles SMTP/IMAP pour la gestion des mails
+- Test de l'envoi et réception des emails
+
+**Gestionnaire de mots de passe avec PassBolt** :
+
+- Mise en place de PassBolt pour la gestion sécurisée des mots de passe
+- Installation sur un serveur existant, accessible via une interface web
+- Intégration avec Active Directory pour l'authentification des utilisateurs
+- Sensibilisation de l'équipe à l'utilisation de PassBolt pour sécuriser les accès
+
+**Configuration de la DMZ** :
+
+- Mise en place de nouvelles règles sur le pare-feu pour la DMZ
+- Protection accrue des ressources accessibles depuis l’extérieur
+- Test et validation de la sécurité de la zone démilitarisée
+
+**Récapitulatifs des Tâches :**
+
+|Personne|Rôle|Tâches|
+|---|---|---|
+|Mina|Product Owner (PO)|- Gestion de projet et suivi des tâches avec RedMine (Objectif 1)|
+|Julie|Développeur|- Configuration et installation de RedMine (Objectif 1)|
+|Mohamed|Développeur|- Mise en place du serveur de messagerie avec iRedMail (Objectif 2) <br> [Doc](S14/S14_Install.md) |
+|Nicolas|Scrum master (SM)|- Installation de PassBolt sur un serveur préexistant et configuration (Objectif 3)|
+|Joris|Développeur|- Configuration des règles de la DMZ sur le pare-feu (Objectif 4)|
+
+**Choix Techniques :**
+
+- Utilisation de RedMine pour la gestion et le suivi des tâches
+- Installation d'iRedMail pour un serveur de messagerie interne et sécurisé
+- PassBolt pour une gestion centralisée et sécurisée des mots de passe
+- DMZ configurée pour renforcer la sécurité du réseau
+
+**Difficultés Rencontrées :**
+
+- Complexité de la configuration des règles de pare-feu pour la DMZ
+- Intégration de PassBolt avec Active Directory nécessitant des ajustements
+- Gestion des certificats SSL pour sécuriser le serveur de messagerie iRedMail
+
+**Solutions Trouvées :**
+
+- Documentation approfondie sur la gestion des DMZ et pare-feu
+- Mise en place de scripts automatisés pour simplifier l'intégration de PassBolt avec Active Directory
+- Utilisation de Let's Encrypt pour gérer les certificats SSL d'iRedMail
+
+**Améliorations Possibles :**
+
+- Améliorer la visibilité des tâches dans RedMine en personnalisant les tableaux de bord
+- Optimisation des performances du serveur de messagerie avec iRedMail
+- Automatisation de la gestion des utilisateurs et accès dans PassBolt pour réduire les interventions manuelles
+- Révision des règles de pare-feu pour la DMZ afin d'anticiper les besoins futurs
 
 ---
 #### Sprint 7 : 
