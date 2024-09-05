@@ -160,7 +160,13 @@ Utilisez les identifiants LDAP que vous avez configurés pour vous connecter.
 
 Aprés avoir créer les utilisateurs sur l'interface admin Iredmail dans l'onglet "Add > Users"
 
-### Procédure complète d'installation de Redmine sur Debian 12 en suivant le lien officiel de Debian
+se connecter sur le webmail ROundcube avec leurs identifiants pour procéder au test 
+
+Envoi : par l'utilisateur abarbier et recepetion par l'utilisateur BMohamed
+
+![Install](/Ressources/Images/receptionok.png)
+
+# Procédure complète d'installation de Redmine sur Debian 12 en suivant le lien officiel de Debian
 
 https://wiki.debian.org/Redmine
 ### Étape 1 : Installer les dépendances de Redmine
@@ -305,8 +311,3 @@ Redmine est disponible dans les dépôts officiels de Debian. Nous allons donc l
     - **Mot de passe** : `admin`
     
     Redmine vous demandera de changer le mot de passe après la première connexion.
-se connecter sur le webmail ROundcube avec leurs identifiants pour procéder au test 
-
-Envoi : par l'utilisateur abarbier et recepetion par l'utilisateur BMohamed
-
-![Install](/Ressources/Images/receptionok.png)
