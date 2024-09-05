@@ -311,3 +311,6 @@ Redmine est disponible dans les dépôts officiels de Debian. Nous allons donc l
     - **Mot de passe** : `admin`
     
     Redmine vous demandera de changer le mot de passe après la première connexion.
+   ![Config Redmine2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Config%20Redmine2.png).
+
+   ![Config Redmine2.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/main/Ressources/Config%20Redmine3.png).
