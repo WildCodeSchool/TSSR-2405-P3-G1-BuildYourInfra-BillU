@@ -159,6 +159,152 @@ Utilisez les identifiants LDAP que vous avez configurés pour vous connecter.
 ### Étape 9 : test Envoi/reception d'email
 
 Aprés avoir créer les utilisateurs sur l'interface admin Iredmail dans l'onglet "Add > Users"
+
+### Procédure complète d'installation de Redmine sur Debian 12 en suivant le lien officiel de Debian
+
+https://wiki.debian.org/Redmine
+### Étape 1 : Installer les dépendances de Redmine
+
+Redmine est disponible dans les dépôts officiels de Debian. Nous allons donc l'installer ainsi que toutes les dépendances nécessaires.
+
+1. **Mettre à jour votre système** :
+    
+    
+    `apt update apt upgrade -y`
+    
+2. **Installer Redmine, MySQL/MariaDB et Apache2** :
+    
+    Redmine dépend de plusieurs packages, dont Apache2, MariaDB, et Passenger.
+    
+    
+    `apt install redmine redmine-mysql libapache2-mod-passenger apache2`
+    
+    **Note** : Comme indiqué dans le lien, choisissez MariaDB pour une meilleure compatibilité.
+    
+
+### Étape 2 : Configurer MariaDB (ou MySQL)
+
+1. **Installer MariaDB** :
+    
+    Si MariaDB n'est pas déjà installé, exécutez :
+    
+    
+    `apt install mariadb-server mariadb-client`
+    
+2. **Sécuriser l'installation de MariaDB** (optionnel mais recommandé) :
+    
+    
+    `mysql_secure_installation`
+    
+    Suivez les instructions pour définir un mot de passe root, supprimer les utilisateurs anonymes, désactiver l'accès root à distance, et supprimer la base de données de test.
+    
+3. **Créer la base de données pour Redmine** :
+    
+    Connectez-vous à MariaDB pour créer la base de données et l'utilisateur pour Redmine.
+    
+    
+    `mysql -u root -p`
+    
+    Dans le shell MariaDB, exécutez les commandes suivantes :
+    
+    
+    `CREATE DATABASE redmine CHARACTER SET utf8mb4; GRANT ALL PRIVILEGES ON redmine.* TO 'redmineuser'@'localhost' IDENTIFIED BY 'Azerty1*'; FLUSH PRIVILEGES; EXIT;`
+    
+
+### Étape 3 : Configurer Redmine
+
+1. **Configurer la connexion à la base de données dans Redmine** :
+    
+    Le fichier de configuration de la base de données se trouve ici : `/etc/redmine/default/database.yml`.
+    
+    Ouvrez et modifiez le fichier :
+    
+    
+    `nano /etc/redmine/default/database.yml`
+    
+    Assurez-vous que la section `production` ressemble à ceci :
+    
+    
+    `production:   adapter: mysql2   database: redmine   host: localhost   username: redmineuser   password: "Azerty1*"   encoding: utf8mb4`
+    
+2. **Configurer les permissions** :
+    
+    Assurez-vous que les permissions du répertoire Redmine permettent à Apache de fonctionner correctement.
+    
+    
+    `chown -R www-data:www-data /usr/share/redmine chmod -R 755 /usr/share/redmine`
+    
+
+### Étape 4 : Configurer Apache pour Redmine
+
+1. **Configurer Apache avec Passenger** :
+    
+    Créez un fichier de configuration pour Redmine dans Apache :
+    
+    
+    `nano /etc/apache2/sites-available/redmine.conf`
+    
+    Ajoutez la configuration suivante :
+    
+    
+    `<VirtualHost *:80>     ServerName 172.18.1.29     DocumentRoot /usr/share/redmine/public      <Directory /usr/share/redmine/public>         AllowOverride All         Options -MultiViews         Require all granted     </Directory>      ErrorLog ${APACHE_LOG_DIR}/redmine_error.log     CustomLog ${APACHE_LOG_DIR}/redmine_access.log combined </VirtualHost>`
+    
+2. **Activer le site Redmine et le module Passenger** :
+    
+    Activez la configuration du site et le module `passenger` dans Apache :
+    
+    
+    `a2ensite redmine.conf a2enmod passenger`
+    
+3. **Désactiver le site par défaut** (facultatif) :
+    
+    Si vous ne voulez pas voir la page par défaut d'Apache, désactivez le site par défaut :
+    
+    
+    `a2dissite 000-default.conf`
+    
+4. **Redémarrer Apache** :
+    
+    Après la configuration, redémarrez Apache pour appliquer les changements :
+    
+
+    `systemctl restart apache2`
+    
+
+### Étape 5 : Finaliser l'installation de Redmine
+
+1. **Exécuter les migrations de la base de données** :
+    
+    Vous devez maintenant exécuter les migrations de la base de données pour configurer les tables nécessaires pour Redmine :
+    
+    `cd /usr/share/redmine RAILS_ENV=production bundle exec rake db:migrate`
+    
+2. **Charger les données par défaut** :
+    
+    Chargez les données par défaut pour initialiser les paramètres de Redmine :
+    
+    
+    `RAILS_ENV=production bundle exec rake redmine:load_default_data`
+    
+    Sélectionnez la langue lors de l'exécution (par exemple, `fr` pour le français).
+    
+
+### Étape 6 : Accéder à Redmine
+
+1. **Accéder à l'interface Web** :
+    
+    Ouvrez votre navigateur et accédez à Redmine en utilisant l'IP ou le nom de domaine configuré, par exemple :
+    
+    - **Si vous avez configuré un nom de domaine** : `http://billu.paris`
+    - **Si vous utilisez une IP locale** : `http://172.18.1.29`
+2. **Connexion** :
+    
+    Utilisez les identifiants par défaut pour vous connecter :
+    
+    - **Nom d'utilisateur** : `admin`
+    - **Mot de passe** : `admin`
+    
+    Redmine vous demandera de changer le mot de passe après la première connexion.
 se connecter sur le webmail ROundcube avec leurs identifiants pour procéder au test 
 
 Envoi : par l'utilisateur abarbier et recepetion par l'utilisateur BMohamed
