@@ -1,0 +1,74 @@
+# Création de la partition de stockage Wsus
+
+* Dans Vmware, faire un clique droit sur la VM Windows Server et cliquer sur Settings.
+* Dans l'onglet Hardware, cliquer sur Add. 
+* Une fenetre Add Harware Wizard s'ouvre, cliquer sur Hard Disk et sur Next. 
+* Dans Select a Disk Type, selectionner SCSI, cliquer sur Next.
+* Dans Select a Disk, selectionner Create a new virtual disk, cliquer sur Next.
+* Dans Specify Disk Capacity, mettre 20 Go et selectionner Store virtual disk as a single file, cliquer sur Next.
+* Dans Specify Disk Type, choisir le nom et l'emplacement du disque et cliquer sur Finish.
+
+# Windows Server 2022
+
+* Taper disque dans la barre de recherche du menu demarrer et selectionner Créer et formater des partitions de disque dur.
+* Dans Gestion des disques, faire un clique droit sur le disque 1 de 20 Go et cliquer sur Nouveau volume simple.
+* Une fenetre Assistant Création d'un volume simple s'ouvre
+* Dans Spécifier la taille du volume, mettre 20462 Mo
+* Dans Attribuer une lettre de lecteur ou de chemin d'access, selectionner Attribuer la lettre de lecteur suivante et selectionner E
+* Dans Formater une partition, selectionner Formater ce volume avec les parametres suivants. Dans systeme de fichier, mettre NTFS, 
+dans Nom de volume, mettre WSUS et cocher la case Effectuer un formatage rapide. Cliquer sur Terminer.
+* Créer un dossier nommé WSUS sur le disque E.
+
+# Installation du serveur WSUS
+
+* Dans le gestionnaire de serveur, cliquer sur gerer et selectionner Ajouter des roles et fonctionnalités.
+* Une fenetre Ajout de roles et de fonctionnalités s'ouvre.
+* Dans Type d'installation, selectionner Installation basée sur un role ou une fonctionnalité. Cliquer sur suivant.
+* Dans Selectionner le serveur de destination, cocher Selectionner un serveur du pool de serveurs et choisir le serveur. Cliquer sur suivant.
+* Dans Selectionner des roles de serveurs, cocher la case Services WSUS. Cliquer sur suivant.
+* Une fenetre Ajouter les fonctionnalités requises pour Services WSUS ? s'ouvre. Cocher la case Inclure les outils de gestion et cliquer sur Ajouter des fonctionnalités. Cliquer sur suivant.
+* Dans Selectionner des fonctionnalités, cliquer sur suivant.
+* Dans Services WSUS, cliquer sur suivant.
+* Dans Selectionner des services de roles, cocher les cases Wid connectivity et WSUS services. Cliquer sur suivant.
+* Dans Selection de l'emplacement du contenu, cocher la case Stocker les mises à jour dans l'emplacement suivant puis indiquer un chemin d'access valide : E:\WSUS. Cliquer sur suivant.
+* Dans Role web serveur, cliquer sur suivant.
+* Dans Selectionner des services de roles, laisser les cases cochées. Cliquer sur suivant.
+* Dans Confirmer les selections d'installation, cliquer sur Installer.
+* Une fois l'installation terminé, cliquer sur Fermer.
+* Dans le gestionnaire de serveur, cliquer sur le triangle jaune et sur Lancer les taches de post-installation.
+
+# Configuration
+
+* Dans le gestionnaire de serveur, aller dans WSUS, clique droit sur le serveur WIN-SERV et selectionner Services WSUS
+* Une fenetre Windows Server Update Services Configuration Wizard: WIN-SERV s'ouvre
+* Dans Microsoft Update Improvement Program, décocher la case Yes, I would like to join the Microsoft Update Improvement Program
+* Dans Choose Upstream Server, laisser sélectionné la case Synchronize from Microsoft Update
+* Dans Specify Proxy Server, laisser decocher la case Use a proxy server when synchronizing   
+* Cliquer sur Start Connecting. Cette action peut être longue. Si cela ne fonctionne pas, vérifier la connexion internet.
+* Dans Choose langage, sélectionne les langues English et French
+* Dans choose products, cocher toutes les cases
+* Dans Choose Classifications, laisser les choix par défaut
+* Dans Configure Sync Schedule, selectionner Synchronize automatically et choisir 4 synchronisations par jour, à partir de 2h.
+* Dans Finished, cocher la case Begin initial synchronization et cliquer sur Finish
+
+* Pour voir l'état de la synchronisation, cliquer sur outils et selectionner Services WSUS. Double clique sur WIN-SERV et cliquer sur Options. 
+* Cliquer sur Automatic Approvals. Dans Update Rules, cocher dans Regle d'approbation automatique par defaut. Cliquer sur Run Rule, sur apply et OK.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
