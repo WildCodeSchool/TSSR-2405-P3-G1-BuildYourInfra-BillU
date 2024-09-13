@@ -474,7 +474,7 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Personne | Rôle | Tâches |
 | --- | --- | --- |
 | Julie | Scrum Master (SM) | - Mise en place du serveur WSUS et gestion des mises à jour (Objectif 1) |
-| Mina | Product Owner (PO) | - Installation et configuration de l'Active Directory Partenariat d'entreprise |
+| Mina | Product Owner (PO) | - Installation et configuration de l'Active Directory (Objectif 4 ) |
 | Joris | Développeur | - Mise à jour de l'AD et partage des rôles FSMO (Objectif 2) |
 | Nicolas | Développeur | - Configuration du VPN site-à-site (Objectif 3) |
 | Mohamed | Développeur | - Intégration de la supervision des réseaux avec Zabbix (Objectif 6) |
