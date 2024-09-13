@@ -422,27 +422,62 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 - Révision des règles de pare-feu pour la DMZ afin d'anticiper les besoins futurs
 
 ---
-#### Sprint 7 : 
+# Sprint 7 : Sécurité, Mise à jour, et Partenariat d'Entreprise
 
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
+## Objectifs du sprint
 
-    -
+### Sécurité / Serveur WSUS :
+
+- Mise en place d'un serveur **WSUS** pour la gestion des mises à jour
+- Liens entre le serveur WSUS et l'Active Directory (AD)
+- Gestion différenciée des mises à jour pour les clients, serveurs, et contrôleurs de domaine (DC)
+- Organisation des mises à jour par unité d'organisation (OU)
+
+### Gestion des Rôles AD / FSMO :
+
+- Installation d'un serveur **Windows Server Core** pour la répartition des rôles FSMO
+- Répartition des rôles FSMO entre trois contrôleurs de domaine
+
+### Partenariat avec EcoTechSolutions :
+
+- Ce sprint marque le début de l'intégration avec EcoTechSolutions
+- Priorités ajustées avec une période de mise en place étendue à **2 semaines**
+
+### Mise en place d’un VPN site-à-site :
+
+- Configuration d'un VPN **site-à-site** pour établir une connexion sécurisée entre les réseaux des deux entreprises
+
+### Gestion partagée de l'Active Directory :
+
+- Mise en place de l'une des deux solutions pour une gestion partagée de l'AD : 
+  1. Fusion des domaines 
+  2. Relation de confiance
+- Gestion des accès distants pour les équipes IT de l'autre entreprise (à déterminer)
+
+### Mise à jour du Pare-feu :
+
+- Modification des règles du pare-feu pour permettre la communication entre les réseaux des deux entreprises
+- Autorisation d'accès à l'interface de gestion pour les administrateurs d'EcoTechSolutions (niveau d'accès à déterminer)
+
+### Supervision des Réseaux et Services :
+
+- Intégration de la supervision des réseaux, matériels et services d'EcoTechSolutions dans le système existant
+- Accès aux tableaux de bord de supervision pour l'équipe IT d'EcoTechSolutions, sans accès aux paramètres administratifs
+
+### Partage et Sécurisation du Stockage :
+
+- Création de dossiers partagés entre les utilisateurs des deux entreprises
+- Gestion de la sécurité des dossiers partagés, avec accès dédié pour l'équipe IT d'EcoTechSolutions
+
+## Récapitulatifs des Tâches :
+
+| Personne | Rôle | Tâches |
+| --- | --- | --- |
+| Julie | Scrum Master (SM) | - Mise en place du serveur WSUS et gestion des mises à jour (Objectif 1) |
+| Mina | Product Owner (PO) | - Installation et configuration de l'Active Directory et des rôles FSMO (Objectif 2) |
+| Joris | Développeur | - Mise à jour de l'AD et partage des rôles FSMO (Objectif 2) |
+| Nicolas | Développeur | - Configuration du VPN site-à-site (Objectif 3) |
+| Mohamed | Développeur | - Intégration de la supervision des réseaux avec Zabbix (Objectif 6) |
 
   ---
 #### Sprint 8 : 
