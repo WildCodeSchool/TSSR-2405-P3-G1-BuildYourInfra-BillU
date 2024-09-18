@@ -1,0 +1,53 @@
+# FreePBX 
+
+## Télécharger et installer FreePBX
+
+* Sur une VM Debian :
+
+* Passer en root avec su -.
+* Executer cette commande :
+* wget https://github.com/FreePBX/sng_freepbx_debian_install/raw/master/sng_freepbx_debian_install.sh -O /tmp/sng_freepbx_debian_install.sh
+* Executer le script qui permet d'installer FreePBX :
+* bash /tmp/sng_freepbx_debian_install.sh
+
+## Configuration de FreePBX
+
+* Sur une VM cliente Ubuntu :
+
+* Ouvrir un navigateur et entrer l'adresse ip du serveur freepbx : 172.20.96.206.
+* Entrer un nom, un nouveau mot de passe et une adresse mail.
+* Cliquer sur setup system.
+* Cliquer sur FreePBX Administration et entrer le nom et le mot de passe.
+* Ne pas activer le serveur FreePBX.
+* Configurer FreePBX en anglais.
+
+## Création de lignes voip
+
+* Aller dans Connectivity et cliquer sur extensions.
+* Aller dans l'onglet SIP [chan_pjsip] Extensions et cliquer sur le bouton Add New SIP [chan_pjsip] Extension.
+
+* Création de la 1ere ligne pour le client windows server : 
+* User extension : 80100
+* Display Name : Windows Server
+* Secret : 1234
+* Password for new user : 1234
+* Cliquer sur submit et apply config.
+
+* Création de la 2em ligne pour le client windows 10 :
+* User extension : 80102
+* Display Name : Windows 10
+* Secret : 1234
+* Password for new user : 1234
+* Cliquer sur submit et apply config.
+
+
+
+
+
+
+
+
+
+
+
+
