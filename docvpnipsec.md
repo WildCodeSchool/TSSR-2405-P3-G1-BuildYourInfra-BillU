@@ -36,3 +36,16 @@ On peut y renseigner un mode Tunnel IPv4, car nos réseaux locaux sont configur�
 ![configuration phase2.png]()
 
 On va ensuite renseigner quels réseaux vont pouvoir communiquer : ici notre réseau local (on renseigner le réseau de notre interface LAN) et du réseau distant (l'adresse IPv4 du réseau du site distant).
+
+On peut ensuite adapter les protocoles d'échange. Nous avons opté pour le protocole ESP qui est le protocle VPN par défaut.
+
+![configurationvpn.png]()
+
+### **Configuration des règles de pare-feu pour le VPN**
+Afin d'assurer la sécurité de notre réseau, des règles de pare-feu doivent être établies entre les deux réseaux locaux. Après l'activation du tunnel VPN, une nouvelle "interface" apparaît dans les règles de pare-feu. On peut dès lors appliquer la politique du "Deny All" et autoriser uniquement les communications nécessaires.
+
+Les règles de la phase 1 doivent être configurées sur l'interface WAN, et donc en IPv6.
+Les règles de la phase 2 doivent être configurées sur l'interface IPsec, et donc en IPv4.
+
+![rulesipsec.png]()
+
