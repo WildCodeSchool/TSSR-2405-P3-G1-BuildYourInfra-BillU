@@ -45,7 +45,7 @@ On peut ensuite adapter les protocoles d'échange. Nous avons opté pour le prot
 Afin d'assurer la sécurité de notre réseau, des règles de pare-feu doivent être établies entre les deux réseaux locaux. Après l'activation du tunnel VPN, une nouvelle "interface" apparaît dans les règles de pare-feu. On peut dès lors appliquer la politique du "Deny All" et autoriser uniquement les communications nécessaires.
 
 Les règles de la phase 1 doivent être configurées sur l'interface WAN, et donc en IPv6.
-Les règles de la phase 2 doivent être configurées sur l'interface IPsec, et donc en IPv4.
+Les règles de la phase 2 doivent être configurées sur l'interface IPsec et sur la LAN, et donc en IPv4.
 
 ![rulesipsec.png](https://github.com/WildCodeSchool/TSSR-2405-P3-G1-BuildYourInfra-BillU/blob/Fichiers-en-cours/rulesipsec.png?raw=true)
 
