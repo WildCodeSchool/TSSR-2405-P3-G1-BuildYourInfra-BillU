@@ -480,27 +480,38 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Mohamed | Développeur | - Intégration de la supervision des réseaux avec Zabbix (Objectif 6) |
 
   ---
-#### Sprint 8 : 
+# Sprint 8 : VPN, Passbolt, VOIP, et Fusion de Groupe
 
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
+## Objectifs du sprint
 
-    -
+### Configuration du VPN et Passbolt :
+
+- Configuration du VPN pour sécuriser les échanges entre les entreprises.
+- Mise en place et gestion de Passbolt pour le partage sécurisé des mots de passe.
+
+### Documentation Active Directory et Partage Sécurisé :
+
+- Documentation Active Directory.
+- Gestion du partage sécurisé des ressources pour le groupe S-1.
+
+### Serveur VOIP :
+
+- Mise en place et configuration du serveur VOIP, en lien avec les besoins de communication des entreprises.
+
+### Documentation de Supervision et Fusion de Groupe :
+
+- Documentation relative à la supervision et à l'intégration des réseaux avec Zabbix.
+- Fusion du groupe 3 pour l'intégration des infrastructures.
+
+## Récapitulatifs des Tâches :
+
+| Personne | Rôle | Tâches |
+| --- | --- | --- |
+| Nicolas | Développeur | - Configuration du VPN + Passbolt |
+| Joris | Développeur | - Configuration de Passbolt + VPN |
+| Mina | Product Owner (PO) | - Documentation AD  |
+| Julie | Scrum Master (SM) | - Mise en place du serveur VOIP  |
+| Mohamed | Développeur | - Documentation supervision et fusion du groupe 3  |
 
   ---
 #### Sprint 9 : 
