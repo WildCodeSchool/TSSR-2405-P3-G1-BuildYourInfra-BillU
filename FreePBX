@@ -1,0 +1,90 @@
+# FreePBX 
+
+## Télécharger et installer FreePBX
+
+* Sur la VM Debian :
+
+* Passer en root avec su -.
+* Executer cette commande :
+* wget https://github.com/FreePBX/sng_freepbx_debian_install/raw/master/sng_freepbx_debian_install.sh -O /tmp/sng_freepbx_debian_install.sh
+* Executer le script qui permet d'installer FreePBX :
+* bash /tmp/sng_freepbx_debian_install.sh
+
+## Configuration de FreePBX
+
+* Sur la VM Ubuntu :
+
+* Ouvrir un navigateur et entrer l'adresse ip du serveur freepbx : 172.20.96.206.
+* Entrer un nom, un nouveau mot de passe et une adresse mail.
+* Cliquer sur setup system.
+* Cliquer sur FreePBX Administration et entrer le nom et le mot de passe.
+* Ne pas activer le serveur FreePBX.
+* Configurer FreePBX en anglais.
+
+## Création de lignes voip
+
+* Aller dans Connectivity et cliquer sur extensions.
+* Aller dans l'onglet SIP [chan_pjsip] Extensions et cliquer sur le bouton Add New SIP [chan_pjsip] Extension.
+
+* Création de la 1ere ligne pour le client windows server : 
+* User extension : 80200
+* Display Name : Windows Server
+* Secret : 1234
+* Password for new user : 1234
+* Cliquer sur submit et apply config.
+
+* Création de la 2em ligne pour le client windows 10 :
+* User extension : 80201
+* Display Name : Windows 10
+* Secret : 1234
+* Password for new user : 1234
+* Cliquer sur submit et apply config.
+
+## Installer 3CX Phone
+
+* Sur la VM Windows 10 :
+
+* Télécharger la version x86/x64 de 3CXPhone sur le site : https://3cxphone.software.informer.com/download/
+* Installer 3CXPhone et l'executer.
+* Faire un clique droit sur l'ecran du téléphone et dans main menu, cliquer sur accounts.
+
+* Créer l'utilisateur windows 10 :
+* Cliquer sur new.
+* Account name : Windows 10
+* Caller id : 80201
+* Extension : 80201
+* Id : 80201
+* Password : 1234
+* I am in the office - local ip : 172.24.198.67
+
+* Sur la VM Windows Server :
+
+* Télécharger la version x86/x64 de 3CXPhone sur le site : https://3cxphone.software.informer.com/download/
+* Installer 3CXPhone et l'executer.
+* Faire un clique droit sur l'ecran du téléphone et dans main menu, cliquer sur accounts.
+
+* Créer l'utilisateur windows Server :
+* Cliquer sur new.
+* Account name : Windows Server
+* Caller id : 80200
+* Extension : 80200
+* Id : 80200
+* Password : 1234
+* I am in the office - local ip : 172.24.198.67
+
+## Tests 
+
+* Sur la VM windows 10 :
+* Entrer 80200 et cliquer sur le téléphone vert. Windows Server recoit l'appel.
+
+* Sur la VM Windows Server : 
+* Entrer 80201 et cliquer sur le téléphone vert. Windows 10 recoit l'appel.
+
+
+
+
+
+
+
+
+
