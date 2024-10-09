@@ -531,5 +531,5 @@ SM : Nicolas , PO: Joris
 | Objectifs   |  Tâches                        | Responsable |
 |-----|------------------------------------------------------|-------------|
 | 1   |  Compte-rendu de fin de projet               |  All team   |
-| 2   |  Mise à jour du [schéma d'infrastructure](S20/schéma_réseau_final)           |  All team   |
+| 2   |  Mise à jour du [schéma d'infrastructure](S20/schéma_réseau_final.png)           |  All team   |
 | 3  |  Préparation, test et correction pour la démo day           |  All team   |
