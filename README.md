@@ -520,7 +520,7 @@ SM : Nicolas , PO: Joris
 
 | Objectifs   |   Tâches                         | Responsable |
 |-----|------------------------------------------------------------|-------------|
-| 1   |  Plan de reprise d'Activité : Evaluation, Identification, Réparation et Documentation  | Mohamed   |
+| 1   |  Plan de reprise d'Activité : Evaluation, Identification, Réparation et [Documentation](S17/S17_Install.md) | Mohamed   |
 | 2   |  Création d'un serveur web  | Nicolas et Joris    |
 | 3   |  Sécurisation de l'accès réseau avec un portail captif via PfSense  | Nicolas et Joris    |
 | 3   |  Partenariat d'entreprise : AD en commun via la mise en place d'une relation de confiance  | Mina   |
@@ -531,5 +531,5 @@ SM : Nicolas , PO: Joris
 | Objectifs   |  Tâches                        | Responsable |
 |-----|------------------------------------------------------|-------------|
 | 1   |  Compte-rendu de fin de projet               |  All team   |
-| 2   |  Mise à jour du schéma d'infrastructure             |  All team   |
+| 2   |  Mise à jour du [schéma d'infrastructure](S20/schéma_réseau_final)           |  All team   |
 | 3  |  Préparation, test et correction pour la démo day           |  All team   |
