@@ -514,70 +514,22 @@ BillU, filiale du groupe international RemindMe, souhaite moderniser son infrast
 | Mohamed | Développeur | - Documentation supervision et fusion du groupe 3  |
 
   ---
-#### Sprint 9 : 
+# Sprint 9 : Partenariat d'entreprise, serveur web et portail captif
 
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
+SM : Nicolas , PO: Joris
 
-    -
+| Objectifs   |   Tâches                         | Responsable |
+|-----|------------------------------------------------------------|-------------|
+| 1   |  Plan de reprise d'Activité : Evaluation, Identification, Réparation et Documentation  | Mohamed   |
+| 2   |  Création d'un serveur web  | Nicolas et Joris    |
+| 3   |  Sécurisation de l'accès réseau avec un portail captif via PfSense  | Nicolas et Joris    |
+| 3   |  Partenariat d'entreprise : AD en commun via la mise en place d'une relation de confiance  | Mina   |
 
   ---
-#### Sprint 10 : 
+#### Sprint 10 et 11 : 
 
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
-
-    -
-
-  ---
-#### Sprint 11 : 
-
-- **Membres du Groupe (Rôles) :**
-    
-    - Scrum Master (SM) : 
-    - Product Owner (PO) : 
-    - Developpeurs : 
-- **Choix Techniques :**
-    
-    - 
-- **Difficultés Rencontrées :**
-    
-    - 
-    - 
-- **Solutions Trouvées :**
-    
-    - 
-    - 
-- **Améliorations Possibles :**
-
-    -
+| Objectifs   |  Tâches                        | Responsable |
+|-----|------------------------------------------------------|-------------|
+| 1   |  Compte-rendu de fin de projet               |  All team   |
+| 2   |  Mise à jour du schéma d'infrastructure             |  All team   |
+| 3  |  Préparation, test et correction pour la démo day           |  All team   |
