@@ -14,7 +14,7 @@ Le MCO (*Maintient en Condition Opérationnelle*) n'est plus valide
 
 | Élément                                         | Catégorie  | Criticité | État                  | Date de résolution prévue |
 |-------------------------------------------------|------------|-----------|----------------------|--------------------------|
-| Serveur Zimbra                                | Messagerie | Majeur    | Défaillant           | En attente               |
+| Serveur Iredmail                                | Messagerie | Majeur    | Défaillant           | En attente               |
 | Routeur Vyos                                    | Réseau     | Critique  | Défaillant           | En attente               |
 | Serveur GUI : Disques de sauvegarde et stockage | Stockage   | Majeur    | Fonctionnel en partie| En attente               |
 | Windows Server Core                             | Serveur    | Mineur    | Défaillant           | En attente               |
@@ -25,7 +25,7 @@ Le MCO (*Maintient en Condition Opérationnelle*) n'est plus valide
 
    | Priorité               | Description                                                                                 | Éléments concernés                             |
 |------------------------|---------------------------------------------------------------------------------------------|------------------------------------------------|
-| Critique (Priorité 1)  | Réseau, messagerie et supervision doivent être rétablis immédiatement pour permettre la communication et le suivi des systèmes. | Routeur Vyos, OpenVPN, Zabbix, Zimbra          |
+| Critique (Priorité 1)  | Réseau, messagerie et supervision doivent être rétablis immédiatement pour permettre la communication et le suivi des systèmes. | Routeur Vyos, OpenVPN, Zabbix, Iredmail          |
 | Majeur (Priorité 2)    | Les serveurs de stockage et les services de sauvegarde doivent être opérationnels pour protéger les données.          | Serveur GUI                                    |
 | Mineur (Priorité 3)    | Les systèmes non critiques doivent être rétablis en dernier.                                | Windows Server Core                            |
                  
@@ -34,7 +34,7 @@ Le MCO (*Maintient en Condition Opérationnelle*) n'est plus valide
 
 | Élément                                         | Catégorie  | Problème                              | Action de reprise                                                                 | Criticité | Date de résolution prévue |
 |-------------------------------------------------|------------|--------------------------------------|----------------------------------------------------------------------------------|-----------|--------------------------|
-| Serveur Zimbra                                | Messagerie | Défaillant                            | Vérifier et redémarrer les services, restaurer les sauvegardes, tester la messagerie. | Majeur    | 22/09/2024               |
+| Serveur Iredmail                                | Messagerie | Défaillant                            | Vérifier et redémarrer les services, restaurer les sauvegardes, tester la messagerie. | Majeur    | 22/09/2024               |
 | Routeur Vyos                                    | Réseau     | Défaillant                            | Redémarrer et vérifier la configuration, tester la connectivité réseau.              | Critique  | 22/09/2024               |
 | Serveur GUI : Disques de sauvegarde et stockage | Stockage   | Fonctionnalité partielle              | Réparer/remplacer les disques, vérifier l'intégrité des données, relancer les sauvegardes. | Majeur    | 22/09/2024               |
 | OpenVPN                                         | Réseau     | Carte réseau HS                       | Remplacer la carte réseau, reconfigurer les interfaces VPN, valider la stabilité.    | Majeur    | 22/09/2024               |
@@ -45,7 +45,7 @@ Le MCO (*Maintient en Condition Opérationnelle*) n'est plus valide
 
 | Élément                                         | Catégorie  | Criticité | État       | Date de résolution |
 |-------------------------------------------------|------------|-----------|------------|-------------------|
-| Serveur Zimbra                                | Messagerie | Majeur    | Fonctionnel| 22/09/2024        |
+| Serveur Iredmail                                | Messagerie | Majeur    | Fonctionnel| 22/09/2024        |
 | Routeur Vyos                                    | Réseau     | Critique  | Fonctionnel| 22/09/2024         |
 | Serveur GUI : Disques de sauvegarde et stockage | Stockage   | Majeur    | Fonctionnel| 22/09/2024         |
 | OpenVPN                                         | Réseau     | Majeur    | Fonctionnel| 22/09/2024          |
