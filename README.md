@@ -526,7 +526,7 @@ SM : Nicolas , PO: Joris
 | 3   |  Partenariat d'entreprise : AD en commun via la mise en place d'une relation de confiance  | Mina   |
 
   ---
-#### Sprint 10 et 11 : 
+# Sprint 10 et 11 : 
 
 | Objectifs   |  Tâches                        | Responsable |
 |-----|------------------------------------------------------|-------------|
